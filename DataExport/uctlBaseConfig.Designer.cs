@@ -98,6 +98,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.label21 = new System.Windows.Forms.Label();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -130,12 +132,14 @@
             this.panel1.Controls.Add(this.comboBox5);
             this.panel1.Controls.Add(this.richTextBox2);
             this.panel1.Controls.Add(this.comboBox6);
+            this.panel1.Controls.Add(this.comboBox8);
             this.panel1.Controls.Add(this.comboBox4);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.label21);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label5);
@@ -157,7 +161,7 @@
             this.comboBox7.Items.AddRange(new object[] {
             "TRUE",
             "FALSE"});
-            this.comboBox7.Location = new System.Drawing.Point(91, 264);
+            this.comboBox7.Location = new System.Drawing.Point(91, 302);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(237, 25);
             this.comboBox7.TabIndex = 16;
@@ -165,7 +169,7 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(91, 221);
+            this.textBox4.Location = new System.Drawing.Point(91, 261);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(237, 23);
             this.textBox4.TabIndex = 15;
@@ -179,7 +183,7 @@
             "XML",
             "EXCEL",
             "DBF"});
-            this.comboBox5.Location = new System.Drawing.Point(91, 9);
+            this.comboBox5.Location = new System.Drawing.Point(91, 8);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(237, 25);
             this.comboBox5.TabIndex = 14;
@@ -187,7 +191,7 @@
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(10, 305);
+            this.richTextBox2.Location = new System.Drawing.Point(10, 338);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(318, 178);
             this.richTextBox2.TabIndex = 13;
@@ -200,7 +204,7 @@
             this.comboBox6.Items.AddRange(new object[] {
             "TRUE",
             "FALSE"});
-            this.comboBox6.Location = new System.Drawing.Point(91, 181);
+            this.comboBox6.Location = new System.Drawing.Point(91, 218);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(237, 25);
             this.comboBox6.TabIndex = 14;
@@ -212,7 +216,7 @@
             this.comboBox4.Items.AddRange(new object[] {
             "TRUE",
             "FALSE"});
-            this.comboBox4.Location = new System.Drawing.Point(91, 138);
+            this.comboBox4.Location = new System.Drawing.Point(91, 134);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(237, 25);
             this.comboBox4.TabIndex = 14;
@@ -231,7 +235,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(10, 267);
+            this.label15.Location = new System.Drawing.Point(10, 306);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(67, 17);
             this.label15.TabIndex = 0;
@@ -240,7 +244,7 @@
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button8.Location = new System.Drawing.Point(137, 499);
+            this.button8.Location = new System.Drawing.Point(127, 541);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 25);
             this.button8.TabIndex = 12;
@@ -252,7 +256,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(10, 223);
+            this.label19.Location = new System.Drawing.Point(10, 264);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(56, 17);
             this.label19.TabIndex = 1;
@@ -262,7 +266,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(10, 184);
+            this.label18.Location = new System.Drawing.Point(10, 222);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(56, 17);
             this.label18.TabIndex = 1;
@@ -272,7 +276,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(10, 141);
+            this.label17.Location = new System.Drawing.Point(10, 138);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(56, 17);
             this.label17.TabIndex = 1;
@@ -282,7 +286,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(10, 98);
+            this.label16.Location = new System.Drawing.Point(10, 96);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(56, 17);
             this.label16.TabIndex = 1;
@@ -292,7 +296,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(10, 55);
+            this.label5.Location = new System.Drawing.Point(10, 54);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 17);
             this.label5.TabIndex = 1;
@@ -307,7 +311,7 @@
             "DISCHARGE_DATE_TIME",
             "MR_BACK_DATE_TIME",
             "paper_mr_receive_date"});
-            this.comboBox3.Location = new System.Drawing.Point(91, 94);
+            this.comboBox3.Location = new System.Drawing.Point(91, 92);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(237, 25);
             this.comboBox3.TabIndex = 0;
@@ -320,7 +324,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "ORACLE",
             "SQLSERVER"});
-            this.comboBox1.Location = new System.Drawing.Point(91, 51);
+            this.comboBox1.Location = new System.Drawing.Point(91, 50);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(237, 25);
             this.comboBox1.TabIndex = 0;
@@ -328,7 +332,7 @@
             // button14
             // 
             this.button14.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(253, 499);
+            this.button14.Location = new System.Drawing.Point(248, 541);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(75, 25);
             this.button14.TabIndex = 8;
@@ -339,7 +343,7 @@
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(10, 499);
+            this.button7.Location = new System.Drawing.Point(6, 541);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 25);
             this.button7.TabIndex = 8;
@@ -858,6 +862,31 @@
             this.splitContainer2.SplitterDistance = 344;
             this.splitContainer2.TabIndex = 0;
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(10, 180);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(56, 17);
+            this.label21.TabIndex = 1;
+            this.label21.Text = "上传间隔";
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Items.AddRange(new object[] {
+            "1月",
+            "1天",
+            "1小时",
+            "1分钟"});
+            this.comboBox8.Location = new System.Drawing.Point(91, 176);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(237, 25);
+            this.comboBox8.TabIndex = 14;
+            this.comboBox8.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            // 
             // uctlBaseConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -966,5 +995,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBox7;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.Label label21;
     }
 }

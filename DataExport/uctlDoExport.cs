@@ -9,7 +9,6 @@ using JHEMR.EmrSysDAL;
 using ToolFunction;
 using System.IO;
 using JHEMR;
-using JHEMR.EmrSysCom;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Diagnostics;
@@ -69,9 +68,6 @@ namespace DataExport
 
         private void btn_done_Click(object sender, EventArgs e)
         {
-            //PublicProperty.m_dtSQL = GrabInfo.GetConfigSQL();
-            //Thread t1 = new Thread(new ThreadStart(GrabInfo.GetPatientData));
-            //t1.Start();
             Thread t1 = new Thread(new ThreadStart(GrabInfo.GrabPatientInfo));
             t1.Start();
         }
@@ -82,10 +78,7 @@ namespace DataExport
             t1.Start();
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
     }
 
 }

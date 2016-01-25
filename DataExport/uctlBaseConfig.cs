@@ -10,6 +10,7 @@ using System.Configuration;
 using System.Diagnostics;
 using ToolFunction;
 using System.IO;
+using System.Threading;
 
 namespace DataExport
 {
@@ -57,7 +58,8 @@ namespace DataExport
             }
             catch (Exception exp)
             {
-                throw exp;
+                InitValue(m_strElementName,"-");
+                CommonFunction.WriteError(exp.Message);
             }
             return _strValue;
         }
@@ -84,7 +86,7 @@ namespace DataExport
         /// </summary>
         /// <param name="p_strKey"></param>
         /// <param name="p_strValue"></param>
-        public void InitValue(string p_strKey, string p_strValue)
+        public static void InitValue(string p_strKey, string p_strValue)
         {
             bool _boExist = false;
             Configuration config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -121,6 +123,7 @@ namespace DataExport
             string _strUrl = GetConfig("WebServiceUrl");
             string _strUseAdapterSQL=GetConfig("UseAdapterSQL");
             string _strAdapterSQL = GetConfig("AdapterSQL");
+            string _strTimeSpan = GetConfig("TimeSpan");
             switch (_strExportType)
             {
                 case m_strDB:
@@ -152,6 +155,8 @@ namespace DataExport
             textBox4.Text = _strUrl;
             comboBox7.Text = _strUseAdapterSQL;
             richTextBox2.Text = _strAdapterSQL;
+            comboBox8.Text = _strTimeSpan;
+             
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -188,6 +193,7 @@ namespace DataExport
             string _strUrl = textBox4.Text;
             string _strUseAdapterSQL = comboBox7.Text;
             string _strAdapterSQL = richTextBox2.Text;
+            string _strTimeSpan = comboBox8.Text;
             SaveConfig("TimeKind", _strTimeKind);
             SaveConfig("ExportType", _strExportType);
             SaveConfig("DBType", _strDBType);
@@ -196,7 +202,15 @@ namespace DataExport
             SaveConfig("WebServiceUrl", _strUrl);
             SaveConfig("UseAdapterSQL", _strUseAdapterSQL);
             SaveConfig("AdapterSQL", _strAdapterSQL);
+            SaveConfig("TimeSpan", _strTimeSpan);
             mf.SetBaseInfo();
+            if ("TRUE"==GetConfig("UploadFlag"))
+            {
+                mf.SetMainFormState();
+                Thread t1 = new Thread(new ThreadStart(AutoUpload.AutomaticUploaded));
+                t1.Start();
+                //AutoUpload.AutomaticUploaded();
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -262,12 +276,21 @@ namespace DataExport
             //Directory.CreateDirectory(Application.StartupPath + "error");
         }
 
-        private void uctlBaseConfig_Load(object sender, EventArgs e)
+        /// <summary>
+        /// 初始化根目录
+        /// </summary>
+        public void InitDir()
         {
             Directory.CreateDirectory(Application.StartupPath + "//file");
             Directory.CreateDirectory(Application.StartupPath + "//xml");
             Directory.CreateDirectory(Application.StartupPath + "//log");
             Directory.CreateDirectory(Application.StartupPath + "//error");
+            Directory.CreateDirectory(Application.StartupPath + "//sql");
+        }
+
+        private void uctlBaseConfig_Load(object sender, EventArgs e)
+        {
+            InitDir();
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
@@ -298,6 +321,7 @@ namespace DataExport
 
         private void button14_Click(object sender, EventArgs e)
         {
+            InitDir();
             InitDBEnviroment();
         }
 

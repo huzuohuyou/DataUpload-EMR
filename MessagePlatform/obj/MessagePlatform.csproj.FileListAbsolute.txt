@@ -1,0 +1,8 @@
+E:\Github\DataUpload-EMR\MessagePlatform\obj\Debug\ResolveAssemblyReference.cache
+E:\Github\DataUpload-EMR\MessagePlatform\obj\Debug\MessagePlatform.Properties.Resources.resources
+E:\Github\DataUpload-EMR\MessagePlatform\obj\Debug\MessagePlatform.csproj.GenerateResource.Cache
+E:\Github\DataUpload-EMR\DataExport\bin\Debug\MessagePlatform.exe.config
+E:\Github\DataUpload-EMR\DataExport\bin\Debug\MessagePlatform.exe
+E:\Github\DataUpload-EMR\DataExport\bin\Debug\MessagePlatform.pdb
+E:\Github\DataUpload-EMR\MessagePlatform\obj\Debug\MessagePlatform.exe
+E:\Github\DataUpload-EMR\MessagePlatform\obj\Debug\MessagePlatform.pdb

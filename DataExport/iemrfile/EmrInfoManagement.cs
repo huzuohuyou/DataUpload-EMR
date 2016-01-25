@@ -8,8 +8,7 @@ using System.Windows.Forms;
 using System.Collections;
 using ToolFunction;
 using System.Xml;
-using JHEMR.EmrSysCom;
-using JHEMR.EmrSysAdaper;
+
 
 namespace DataExport.文件接口
 {
@@ -32,24 +31,24 @@ namespace DataExport.文件接口
         /// </summary>
         public static bool InitStatus()
         {
-            try
-            {
-                EmrSysPubVar.fillHospitalName();
-                if (EmrSysPubVar.fillFileSystemInfo())
-                {
-                    //RemoteMessage.SendMessage("连接文件服务器状态初始化.......");
-                    EmrSysPubVar.setTempFileFullName(Application.StartupPath + "\\file\\mrtemp");
-                    return true;
-                }
-            }
-            catch (Exception exp)
-            {
-                CommonFunction.WriteError(exp.Message);
-                throw;
-            }
-            //RemoteMessage.SendMessage("请退出应用程序，配置当前病历路径描述表mr_work_path!");
-            Application.ExitThread();
-            Application.Exit();
+            //try
+            //{
+            //    EmrSysPubVar.fillHospitalName();
+            //    if (EmrSysPubVar.fillFileSystemInfo())
+            //    {
+            //        //RemoteMessage.SendMessage("连接文件服务器状态初始化.......");
+            //        EmrSysPubVar.setTempFileFullName(Application.StartupPath + "\\file\\mrtemp");
+            //        return true;
+            //    }
+            //}
+            //catch (Exception exp)
+            //{
+            //    CommonFunction.WriteError(exp.Message);
+            //    throw;
+            //}
+            ////RemoteMessage.SendMessage("请退出应用程序，配置当前病历路径描述表mr_work_path!");
+            //Application.ExitThread();
+            //Application.Exit();
             return false;
         }
 
@@ -62,7 +61,7 @@ namespace DataExport.文件接口
         /// <param name="p_strFileName"></param>
         public static void RedirectSavePath(string p_strPatientId, string p_strVisitId, string p_strFileName)
         {
-            EmrSysPubVar.setTempFileFullName(Application.StartupPath + "\\file\\" + p_strPatientId +"_"+p_strFileName);
+            //EmrSysPubVar.setTempFileFullName(Application.StartupPath + "\\file\\" + p_strPatientId +"_"+p_strFileName);
         }
 
 
@@ -75,24 +74,24 @@ namespace DataExport.文件接口
         /// <returns></returns>
         public static bool DownLoadFile(string p_strFileName, string p_strPatientId)
         {
-            string _strMess = "文件" + p_strPatientId + "|" + p_strFileName;
-            object[] strArgs;
-            strArgs = new object[3];
-            strArgs[0] = 0;
-            strArgs[1] = p_strFileName;
-            strArgs[2] = p_strPatientId;
-            try
-            {
-                if (!EMRArchiveAdaperUse.retrieveEmrFile(strArgs))
-                {
-                    return false;
-                }
-            }
-            catch (Exception exp)
-            {
+            //string _strMess = "文件" + p_strPatientId + "|" + p_strFileName;
+            //object[] strArgs;
+            //strArgs = new object[3];
+            //strArgs[0] = 0;
+            //strArgs[1] = p_strFileName;
+            //strArgs[2] = p_strPatientId;
+            //try
+            //{
+            //    if (!EMRArchiveAdaperUse.retrieveEmrFile(strArgs))
+            //    {
+            //        return false;
+            //    }
+            //}
+            //catch (Exception exp)
+            //{
 
-                return false;
-            }
+            //    return false;
+            //}
             return true;
         }
 

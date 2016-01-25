@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button3 = new System.Windows.Forms.Button();
@@ -42,6 +43,8 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -61,6 +64,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.button3);
+            this.splitContainer1.Panel1.Controls.Add(this.button9);
             this.splitContainer1.Panel1.Controls.Add(this.button7);
             this.splitContainer1.Panel1.Controls.Add(this.button8);
             this.splitContainer1.Panel1.Controls.Add(this.button2);
@@ -81,7 +85,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(1, 46);
+            this.button3.Location = new System.Drawing.Point(1, 36);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(246, 35);
             this.button3.TabIndex = 2;
@@ -96,7 +100,7 @@
             // 
             this.button7.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button7.Location = new System.Drawing.Point(1, 256);
+            this.button7.Location = new System.Drawing.Point(1, 246);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(246, 35);
             this.button7.TabIndex = 2;
@@ -111,7 +115,7 @@
             // 
             this.button8.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button8.Location = new System.Drawing.Point(1, 81);
+            this.button8.Location = new System.Drawing.Point(1, 71);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(246, 35);
             this.button8.TabIndex = 2;
@@ -126,7 +130,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(1, 116);
+            this.button2.Location = new System.Drawing.Point(1, 106);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(246, 35);
             this.button2.TabIndex = 2;
@@ -141,7 +145,7 @@
             // 
             this.button5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button5.Location = new System.Drawing.Point(1, 221);
+            this.button5.Location = new System.Drawing.Point(1, 211);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(246, 35);
             this.button5.TabIndex = 3;
@@ -156,7 +160,7 @@
             // 
             this.button6.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button6.Location = new System.Drawing.Point(1, 186);
+            this.button6.Location = new System.Drawing.Point(1, 176);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(246, 35);
             this.button6.TabIndex = 1;
@@ -171,7 +175,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.Location = new System.Drawing.Point(1, 151);
+            this.button4.Location = new System.Drawing.Point(1, 141);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(246, 35);
             this.button4.TabIndex = 0;
@@ -186,7 +190,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(1, 11);
+            this.button1.Location = new System.Drawing.Point(1, 1);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(246, 35);
             this.button1.TabIndex = 0;
@@ -251,6 +255,28 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button9.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button9.Location = new System.Drawing.Point(1, 281);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(246, 35);
+            this.button9.TabIndex = 2;
+            this.button9.TabStop = false;
+            this.button9.Text = "输出窗口";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button9.MouseHover += new System.EventHandler(this.button1_MouseHover);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "电子病历数据上传软件";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -266,6 +292,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "数据上传 V3.0";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -294,6 +321,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

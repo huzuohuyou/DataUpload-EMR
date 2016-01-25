@@ -92,7 +92,6 @@ namespace DataExport
         public static string CombineValues(DataRow p_drSource)
         {
             m_strValues = string.Empty;
-            //RemoteMessage.SendMessage("正在拼接[" + m_strTableName + "]的值" + m_strColumns);
             DataRow _drValue = p_drSource;
             DataTable m_dtColumns = GetTargetTable(m_strTableName);
             foreach (string dcItem in m_strColumns.Split(','))

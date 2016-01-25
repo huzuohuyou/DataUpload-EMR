@@ -144,7 +144,7 @@ namespace DataExport
         public void SetBaseInfo()
         {
             label1.Text = "导出方式:" + uctlBaseConfig.GetConfig("ExportType");
-            this.Text = "数据导出V3.0  导出方式:" + uctlBaseConfig.GetConfig("ExportType");
+            this.Text = "数据导出V3.0  导出方式:" + uctlBaseConfig.GetConfig("ExportType") + "自动导出" + uctlBaseConfig.GetConfig("UploadFlag");
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -172,6 +172,43 @@ namespace DataExport
             CommonFunction.AddForm3(pl_showcontains, de);
         }
 
+        private void button9_Click(object sender, EventArgs e)
+        {
+            string _strExePath = Application.StartupPath + @"\MessagePlatform.exe";
+            Process.Start(_strExePath);
+            RemoteMessage.InitClient();
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.ShowInTaskbar = true;  //显示在系统任务栏
+                this.WindowState = FormWindowState.Normal;  //还原窗体
+                notifyIcon1.Visible = false;  //托盘图标隐藏
+            }
+        }
+
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)  //判断是否最小化
+            {
+                this.ShowInTaskbar = false;  //不显示在系统任务栏
+                notifyIcon1.Visible = true;  //托盘图标可见
+            }
+        }
+
+        /// <summary>
+        /// 启动自动上传时
+        /// 将程序隐藏到托盘
+        /// </summary>
+        public void SetMainFormState()
+        {
+            this.ShowInTaskbar = false;  //不显示在系统任务栏
+            notifyIcon1.Visible = true;  //托盘图标可见
+        }
+
+       
 
     }
 }

@@ -576,7 +576,9 @@ namespace DataExport
                     ExeExport(_dtOnePatOneObj);                   
                 }
             }
-            RemoteMessage.SendMessage("导入成功:" + PublicVar.m_nSuccessCount + "\n导入失败:" + PublicVar.m_nFalseCount);
+            string _strMess = "导入成功:" + PublicVar.m_nSuccessCount + "\n导入失败:" + PublicVar.m_nFalseCount;
+            RemoteMessage.SendMessage(_strMess);
+            CommonFunction.WriteLog(_strMess);
         }
 
         /// <summary>

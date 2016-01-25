@@ -5,7 +5,6 @@ using System.Data;
 using System.IO;
 using ToolFunction;
 using System.Threading;
-using JHEMR.EmrSysAdaper;
 using System.Windows.Forms;
 
 namespace DataExport.文件接口
@@ -87,24 +86,24 @@ namespace DataExport.文件接口
         /// <returns></returns>
         public void DoDownLoad(string p_strPatientId,string p_strFileName)
         {
-            object[] strArgs;
-            strArgs = new object[3];
-            strArgs[0] = 0;
-            strArgs[1] = p_strFileName;
-            strArgs[2] = p_strPatientId;
-            string _strTemp = p_strPatientId + "_" + p_strFileName;
-            if (!EMRArchiveAdaperUse.retrieveEmrFile(strArgs))
-            {
-                _nFCount++;
-                RemoteMessage.SendMessage(_strTemp.PadRight(30, '　') + "FALSE");
-            }
-            else
-            {
-                _nTCount++;
-                RemoteMessage.SendMessage(_strTemp.PadRight(30, '　') + "SUCCESS");
-            }
-            _strTemp = "导出完毕:[成功]" + _nTCount + "[失败]:" + _nFCount;
-            RemoteMessage.SendMessage(_strTemp);
+            //object[] strArgs;
+            //strArgs = new object[3];
+            //strArgs[0] = 0;
+            //strArgs[1] = p_strFileName;
+            //strArgs[2] = p_strPatientId;
+            //string _strTemp = p_strPatientId + "_" + p_strFileName;
+            //if (!EMRArchiveAdaperUse.retrieveEmrFile(strArgs))
+            //{
+            //    _nFCount++;
+            //    RemoteMessage.SendMessage(_strTemp.PadRight(30, '　') + "FALSE");
+            //}
+            //else
+            //{
+            //    _nTCount++;
+            //    RemoteMessage.SendMessage(_strTemp.PadRight(30, '　') + "SUCCESS");
+            //}
+            //_strTemp = "导出完毕:[成功]" + _nTCount + "[失败]:" + _nFCount;
+            //RemoteMessage.SendMessage(_strTemp);
         }
 
         /// <summary>
@@ -115,25 +114,25 @@ namespace DataExport.文件接口
         /// <returns></returns>
         public void DoDownLoad()
         {
-            m_nCount++;
-            object[] strArgs;
-            strArgs = new object[3];
-            strArgs[0] = 0;
-            strArgs[1] = m_strFileName;
-            strArgs[2] = m_strPatientId;
-            string _strTemp = m_strPatientId + "_" + m_strFileName;
-            if (!EMRArchiveAdaperUse.retrieveEmrFile(strArgs))
-            {
-                RemoteMessage.SendMessage(_strTemp.PadRight(30, '　') + "FALSE");
-            }
-            else
-            {
-                RemoteMessage.SendMessage(_strTemp.PadRight(30, '　') + "SUCCESS");
-            }
-            //if (m_nCount>=m_dtPats.Rows.Count)
+            //m_nCount++;
+            //object[] strArgs;
+            //strArgs = new object[3];
+            //strArgs[0] = 0;
+            //strArgs[1] = m_strFileName;
+            //strArgs[2] = m_strPatientId;
+            //string _strTemp = m_strPatientId + "_" + m_strFileName;
+            //if (!EMRArchiveAdaperUse.retrieveEmrFile(strArgs))
             //{
-            //    RemoteMessage.SendMessage("==========================[数据导出完毕]==========================");
+            //    RemoteMessage.SendMessage(_strTemp.PadRight(30, '　') + "FALSE");
             //}
+            //else
+            //{
+            //    RemoteMessage.SendMessage(_strTemp.PadRight(30, '　') + "SUCCESS");
+            //}
+            ////if (m_nCount>=m_dtPats.Rows.Count)
+            ////{
+            ////    RemoteMessage.SendMessage("==========================[数据导出完毕]==========================");
+            ////}
         }
 
     }

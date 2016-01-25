@@ -270,7 +270,7 @@ namespace DataExport
         public static string GetSQL(string p_strFileName)
         {
             string _strSQL = string.Empty;
-            string _strPath = Application.StartupPath + "/SQL/";
+            string _strPath = Application.StartupPath + "\\sql\\";
             if (Directory.Exists(_strPath))
             {
                 _strPath = _strPath + p_strFileName + ".sql";
@@ -285,7 +285,6 @@ namespace DataExport
             else
             {
                 Directory.CreateDirectory(_strPath);
-                throw new Exception("Directory not Found Exception!");
                 return string.Empty;
             }
             return _strSQL;

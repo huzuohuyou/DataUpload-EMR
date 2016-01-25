@@ -6,10 +6,12 @@ using JHEMR.EmrSysDAL;
 using System.Threading;
 using ToolFunction;
 using System.Configuration;
+using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace DataExport
 {
-    class AutoUpload
+    public class AutoUpload
     {
         private DataSet m_dsAllPatsInfo = null;
         private DataSet m_dsPtas = null;
@@ -38,6 +40,47 @@ namespace DataExport
             RemoteMessage.SendMessage("===加载病人列表\nSQL：" + sql + "\n===共" + m_dsPtas.Tables[0].Rows.Count.ToString() + "人");
         }
 
+
+        /// <summary>
+        /// 自动上传
+        /// 2016-01-25
+        /// 吴海龙
+        /// </summary>
+        public static void AutomaticUploaded()
+        {
+            string _strExePath = Application.StartupPath + @"\MessagePlatform.exe";
+            Process.Start(_strExePath);
+            RemoteMessage.InitClient();
+            while (true)
+            {
+                string _strSQL = uctlBaseConfig.GetConfig("AdapterSQL");
+                PublicVar.m_dsPatients = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
+
+                //每24小时执行一次
+                //Thread t1 = new Thread(new ThreadStart(GrabInfo.GetPatientData));
+                //t1.Start();
+                GrabInfo.GetPatientData();
+                string _strTimeSpan = uctlBaseConfig.GetConfig("TimeSpan");
+                if (_strTimeSpan == "1天")
+                {
+                    Thread.Sleep(1000 * 60 * 60 * 24);
+                }
+                else if (_strTimeSpan == "1小时")
+                {
+                    Thread.Sleep(1000 * 60 * 60);
+                }
+                else if (_strTimeSpan == "1分钟")
+                {
+                    Thread.Sleep(1000 * 60);
+                }
+                else
+                {
+                    Thread.Sleep(1000 * 60);
+                }
+                
+            }
+            
+        }
 
         /// <summary>
         /// 获取平台配置的sql

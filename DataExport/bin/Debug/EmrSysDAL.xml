@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EmrSysDAL</name>
+    </assembly>
+    <members>
+        <member name="M:JHEMR.EmrSysDAL.DAL.ExecuteSql(System.String)">
+            <summary>
+            执行SQL语句，返回影响的记录数
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DAL.ExecuteSqlTran(System.String[])">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="[]SQLString">多条SQL语句数组</param>
+            SQLStringList,这个地方自己可以修改的方法。
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DAL.ExecuteSql(System.String,System.String)">
+            <summary>
+            执行带一个存储过程参数的的SQL语句。
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <param name="content">参数内容,比如一个字段是格式复杂的文章，有特殊符号，可以通过这个方式添加</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DAL.ExecuteSqlInsertImg(System.String,System.Byte[])">
+            <summary>
+            向数据库里插入图像格式的字段(和上面情况类似的另一种实例)
+            </summary>
+            <param name="strSQL">SQL语句</param>
+            <param name="fs">图像字节,数据库的字段类型为image的情况</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DAL.updateDataSet(System.Data.DataSet,System.String)">
+            <summary>
+            Updates the data set.
+            </summary>
+            <param name="dataSet">The data set.</param>
+            <param name="SQLString">The SQL string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DAL.GetCount(System.String)">
+            <summary>
+            执行一条计算查询结果语句，返回查询结果（整数）。
+            </summary>
+            <param name="strSQL">计算查询语句</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DAL.GetSingle(System.String)">
+            <summary>
+            执行一条计算查询结果语句，返回查询结果（object）。
+            </summary>
+            <param name="SQLString">计算查询结果语句</param>
+            <returns>查询结果（object）</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DAL.Query(System.String)">
+            <summary>
+            执行查询语句，返回DataSet
+            </summary>
+            <param name="SQLString">查询语句</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DAL.RunProcedure(System.String,System.Data.IDataParameter[],System.String)">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <param name="tableName">DataSet结果中的表名</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DAL.RunProcedure(System.String,System.Data.IDataParameter[],System.Int32@)">
+            <summary>
+            执行存储过程，返回影响的行数		
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <param name="rowsAffected">影响的行数</param>
+            <returns></returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DAL.updateDataSet(System.Data.DataSet,JHEMR.EmrEntities.IEmrEntity)">
+            <summary>
+            Updates the data set.
+            </summary>
+            <param name="dataSet">The data set.</param>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.SQLServerDAL.ExecuteSql(System.String)">
+            <summary>
+            执行SQL语句，返回影响的记录数
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.SQLServerDAL.ExecuteSqlTran(System.String[])">
+            <summary>
+            执行两条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLString1">SQL语句1</param>
+            <param name="SQLString2">SQL语句2</param>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.SQLServerDAL.ExecuteSql(System.String,System.String)">
+            <summary>
+            执行带一个存储过程参数的的SQL语句。
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <param name="content">参数内容,比如一个字段是格式复杂的文章，有特殊符号，可以通过这个方式添加</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.SQLServerDAL.ExecuteSqlInsertImg(System.String,System.Byte[])">
+            <summary>
+            向数据库里插入图像格式的字段(和上面情况类似的另一种实例)
+            </summary>
+            <param name="strSQL">SQL语句</param>
+            <param name="fs">图像字节,数据库的字段类型为image的情况</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.SQLServerDAL.GetCount(System.String)">
+            <summary>
+            执行一条计算查询结果语句，返回查询结果（整数）。
+            </summary>
+            <param name="strSQL">计算查询语句</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.SQLServerDAL.GetSingle(System.String)">
+            <summary>
+            执行一条计算查询结果语句，返回查询结果（object）。
+            </summary>
+            <param name="SQLString">计算查询结果语句</param>
+            <returns>查询结果（object）</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.SQLServerDAL.ExecuteReader(System.String)">
+            <summary>
+            执行查询语句，返回SqlDataReader
+            </summary>
+            <param name="strSQL">查询语句</param>
+            <returns>SqlDataReader</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.SQLServerDAL.Query(System.String)">
+            <summary>
+            执行查询语句，返回DataSet
+            </summary>
+            <param name="SQLString">查询语句</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.SQLServerDAL.RunProcedure(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>SqlDataReader</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.SQLServerDAL.RunProcedure(System.String,System.Data.IDataParameter[],System.String)">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <param name="tableName">DataSet结果中的表名</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.SQLServerDAL.BuildQueryCommand(System.Data.SqlClient.SqlConnection,System.String,System.Data.IDataParameter[])">
+            <summary>
+            构建 SqlCommand 对象(用来返回一个结果集，而不是一个整数值)
+            </summary>
+            <param name="connection">数据库连接</param>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>SqlCommand</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.SQLServerDAL.RunProcedure(System.String,System.Data.IDataParameter[],System.Int32@)">
+            <summary>
+            执行存储过程，返回影响的行数		
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <param name="rowsAffected">影响的行数</param>
+            <returns></returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.SQLServerDAL.BuildIntCommand(System.Data.SqlClient.SqlConnection,System.String,System.Data.IDataParameter[])">
+            <summary>
+            创建 SqlCommand 对象实例(用来返回一个整数值)	
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>SqlCommand 对象实例</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.ExecuteSql(System.String)">
+            <summary>
+            执行SQL语句，返回影响的记录数
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.ExecuteSqlTran(System.String[])">
+            <summary>
+            执行两条SQL语句，实现数据库事务。
+            </summary>
+            <param name="SQLString1">SQL语句1</param>
+            <param name="SQLString2">SQL语句2</param>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.ExecuteSql(System.String,System.String)">
+            <summary>
+            执行带一个存储过程参数的的SQL语句。
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <param name="content">参数内容,比如一个字段是格式复杂的文章，有特殊符号，可以通过这个方式添加</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.ExecuteSqlInsertImg(System.String,System.Byte[])">
+            <summary>
+            向数据库里插入图像格式的字段(和上面情况类似的另一种实例)
+            </summary>
+            <param name="strSQL">SQL语句</param>
+            <param name="fs">图像字节,数据库的字段类型为image的情况</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.updateDataSet(System.Data.DataSet,System.String)">
+            <summary>
+            Updates the data set.
+            </summary>
+            <param name="dataSet">The data set.</param>
+            <param name="SQLString">The SQL string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.updateDataSet(System.Data.DataSet,JHEMR.EmrEntities.IEmrEntity)">
+            <summary>
+            Updates the data set.
+            </summary>
+            <param name="dataSet">The data set.</param>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.GetCount(System.String)">
+            <summary>
+            执行一条计算查询结果语句，返回查询结果（整数）。
+            </summary>
+            <param name="strSQL">计算查询语句</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.GetSingle(System.String)">
+            <summary>
+            执行一条计算查询结果语句，返回查询结果（object）。
+            </summary>
+            <param name="SQLString">计算查询结果语句</param>
+            <returns>查询结果（object）</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.ExecuteReader(System.String)">
+            <summary>
+            执行查询语句，返回OracleDataAdapter
+            </summary>
+            <param name="strSQL">查询语句</param>
+            <returns>OracleDataAdapter</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.Query(System.String)">
+            <summary>
+            执行查询语句，返回DataSet
+            </summary>
+            <param name="SQLString">查询语句</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.RunProcedure(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>OracleDataAdapter</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.RunProcedure(System.String,System.Data.IDataParameter[],System.String)">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <param name="tableName">DataSet结果中的表名</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.BuildQueryCommand(System.Data.OracleClient.OracleConnection,System.String,System.Data.IDataParameter[])">
+            <summary>
+            构建 OracleCommand 对象(用来返回一个结果集，而不是一个整数值)
+            </summary>
+            <param name="connection">数据库连接</param>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>OracleCommand</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.RunProcedure(System.String,System.Data.IDataParameter[],System.Int32@)">
+            <summary>
+            执行存储过程，返回影响的行数		
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <param name="rowsAffected">影响的行数</param>
+            <returns></returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.OracleDAL.BuildIntCommand(System.Data.OracleClient.OracleConnection,System.String,System.Data.IDataParameter[])">
+            <summary>
+            创建 OracleCommand 对象实例(用来返回一个整数值)	
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <returns>OracleCommand 对象实例</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DALUse.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:JHEMR.EmrSysDAL.DALUse"/> class.
+            </summary>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DALUse.getClientConnectType">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DALUse.ExecuteSql(System.String)">
+            <summary>
+            执行SQL语句，返回影响的记录数
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <!-- 对于成员“M:JHEMR.EmrSysDAL.DALUse.ExecuteSqlTran(System.String[])”忽略有格式错误的 XML 注释 -->
+        <member name="M:JHEMR.EmrSysDAL.DALUse.ExecuteSql(System.String,System.String)">
+            <summary>
+            执行带一个存储过程参数的的SQL语句。
+            </summary>
+            <param name="SQLString">SQL语句</param>
+            <param name="content">参数内容,比如一个字段是格式复杂的文章，有特殊符号，可以通过这个方式添加</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DALUse.ExecuteSqlInsertImg(System.String,System.Byte[])">
+            <summary>
+            向数据库里插入图像格式的字段(和上面情况类似的另一种实例)
+            </summary>
+            <param name="strSQL">SQL语句</param>
+            <param name="fs">图像字节,数据库的字段类型为image的情况</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DALUse.UpdateDataSet(System.Data.DataSet,System.String)">
+            <summary>
+            Updates the data set.
+            </summary>
+            <param name="dataSet">The data set.</param>
+            <param name="SQLString">The SQL string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DALUse.GetCount(System.String)">
+            <summary>
+            执行一条计算查询结果语句，返回查询结果（整数）。
+            </summary>
+            <param name="strSQL">计算查询语句</param>
+            <returns>查询结果</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DALUse.GetSingle(System.String)">
+            <summary>
+            执行一条计算查询结果语句，返回查询结果（object）。
+            </summary>
+            <param name="SQLString">计算查询结果语句</param>
+            <returns>查询结果（object）</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DALUse.Query(System.String)">
+            <summary>
+            执行查询语句，返回DataSet
+            </summary>
+            <param name="SQLString">查询语句</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DALUse.RunProcedure(System.String,System.Data.IDataParameter[],System.String)">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <param name="tableName">DataSet结果中的表名</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DALUse.RunProcedure(System.String,System.Data.IDataParameter[],System.Int32@)">
+            <summary>
+            执行存储过程，返回影响的行数		
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parameters">存储过程参数</param>
+            <param name="rowsAffected">影响的行数</param>
+            <returns></returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DALUse.ExecuteStoredProcedureNonQuery(System.String,System.String[],System.Object[],System.String[],System.Data.DbType[],System.Object[]@)">
+            <summary>
+            Executes the stored procedure non query.
+            </summary>
+            <param name="ProcedureName">Name of the procedure.</param>
+            <param name="ParamNames">The param names.</param>
+            <param name="paramValues">The param values.</param>
+            <param name="outParamNames">The out param names.</param>
+            <param name="outParamTypes">The out param types.</param>
+            <param name="outParamResults">The out param results.</param>
+            <returns></returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DALUse.ExecuteStoredProcedureNonQuery(System.String,System.String[],System.Object[])">
+            <summary>
+            Executes the stored procedure non query.
+            </summary>
+            <param name="ProcedureName">Name of the procedure.</param>
+            <param name="ParamNames">The param names.</param>
+            <param name="paramValues">The param values.</param>
+            <returns></returns>
+        </member>
+        <member name="M:JHEMR.EmrSysDAL.DALUse.UpdateDataSet(System.Data.DataSet,JHEMR.EmrEntities.IEmrEntity)">
+            <summary>
+            Updates the data set.
+            </summary>
+            <param name="dataSet">The data set.</param>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

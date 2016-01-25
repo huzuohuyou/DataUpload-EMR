@@ -1,0 +1,32 @@
+[TIME]:2016/1/25 10:10:09
+[ERROR]:ORA-12154: TNS:could not resolve the connect identifier specified
+
+[TIME]:2016/1/25 10:10:16
+[ERROR]:ORA-12154: TNS:could not resolve the connect identifier specified
+
+[TIME]:2016/1/25 10:10:20
+[ERROR]:ORA-12154: TNS:could not resolve the connect identifier specified
+
+[TIME]:2016/1/25 10:10:42
+[ERROR]:ORA-12154: TNS:could not resolve the connect identifier specified
+
+[TIME]:2016/1/25 14:24:29
+[ERROR]:表不存在。
+ORA-00942: table or view does not exist
+
+[TIME]:2016/1/25 14:26:27
+[ERROR]:表不存在。
+ORA-00942: table or view does not exist
+
+[TIME]:2016/1/25 14:26:57
+[ERROR]:在执行命令过程中，发生了一个或多个错误。
+ORA-00936: missing expression
+
+[TIME]:2016/1/25 14:27:04
+[ERROR]:在执行命令过程中，发生了一个或多个错误。
+ORA-00936: missing expression
+
+[TIME]:2016/1/25 14:28:09
+[ERROR]:在执行命令过程中，发生了一个或多个错误。
+ORA-00904: "LOG_DATE_TIME": invalid identifier
+

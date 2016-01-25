@@ -112,7 +112,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.dt_sta);
             this.splitContainer1.Panel1.Controls.Add(this.btn_export);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
