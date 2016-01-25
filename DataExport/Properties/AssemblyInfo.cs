@@ -7,7 +7,7 @@ using System.Resources;
 // 控制。更改这些属性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("DataExport")]
-[assembly: AssemblyDescription("1.实现获取模板层次号数据2.实现获取模板元素数据")]
+[assembly: AssemblyDescription("移植于DataUpload的5.3.0.1为了兼容方案")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
 [assembly: AssemblyProduct("JHMK-数据对接平台")]
@@ -31,5 +31,5 @@ using System.Resources;
 //      修订号
 //
 [assembly: AssemblyVersion("3.0.0.2")]
-[assembly: AssemblyFileVersion("4.0.0.1")]
+[assembly: AssemblyFileVersion("5.0.0.1")]
 [assembly: NeutralResourcesLanguageAttribute("")]
