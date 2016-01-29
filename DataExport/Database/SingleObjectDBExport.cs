@@ -65,7 +65,7 @@ namespace DataExport
         {
             string m_strTableName = p_strTableName;
             m_strColumns = string.Empty;
-            RemoteMessage.SendMessage("正在拼接[" + m_strTableName + "]的列");
+            //RemoteMessage.SendMessage("正在拼接[" + m_strTableName + "]的列");
             DataTable m_dtColumns = GetTargetTable(p_strTableName);
             foreach (DataColumn drColumnName in m_dtColumns.Columns)//拼接插入的列
             {
@@ -122,6 +122,7 @@ namespace DataExport
                     }
                     string type = m_dtColumns.Columns[dcItem].DataType.Name.ToString();
                     m_strValues += FixDateTime.makeInsertvalue(_strValue, false, m_strTargetDBType, type);
+                    RemoteMessage.SendMessage(dcItem.PadRight(25,'.') + _strValue);
                 }
                 else
                 {
@@ -149,6 +150,7 @@ namespace DataExport
             {
                 return true;
             }
+            CommonFunction.WriteError(p_strTableName + m_strSQL);
             return false;
         }
 
@@ -158,24 +160,30 @@ namespace DataExport
         /// <param name="p_dtPatObj"></param>
         public static void DoImport(DataTable p_dtPatObj)
         {
-            m_strTableName = p_dtPatObj.TableName;
-            m_strColumns = CombineColumns(m_strTableName);
-            foreach (DataRow drValue in p_dtPatObj.Rows)
+            try
             {
-                string m_strValues = CombineValues(drValue);
-                if (!ExeCuteSQL(m_strTableName, m_strColumns, m_strValues))
+                m_strTableName = p_dtPatObj.TableName;
+                m_strColumns = CombineColumns(m_strTableName);
+                foreach (DataRow drValue in p_dtPatObj.Rows)
                 {
-                    RemoteMessage.SendMessage("[执行].....................FALSE");
-                    PublicVar.m_nFalseCount++;
-                    WritLog();
-                }
-                else
-                {
-                    RemoteMessage.SendMessage("[执行].....................TRUE");
-                    PublicVar.m_nSuccessCount++;
+                    string m_strValues = CombineValues(drValue);
+                    if (!ExeCuteSQL(m_strTableName, m_strColumns, m_strValues))
+                    {
+                        RemoteMessage.SendMessage("[执行].....................FALSE");
+                        PublicVar.m_nFalseCount++;
+                        WritLog();
+                    }
+                    else
+                    {
+                        RemoteMessage.SendMessage("[执行].....................TRUE");
+                        PublicVar.m_nSuccessCount++;
+                    }
                 }
             }
-
+            catch (Exception exp)
+            {
+                RemoteMessage.SendMessage(exp.Message + "DoImport");
+            }
         }
 
         public static void WritLog() { }

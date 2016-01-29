@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using ToolFunction;
 using System.Data;
+using System.Threading;
 
 namespace DataExport
 {
@@ -11,7 +12,10 @@ namespace DataExport
         public static string m_strCurrentPatientId = string.Empty;
         public static string m_strCurrentVisitId = string.Empty;
         public static string m_strEmrConnection = "EMR";
+        public static string m_strExportType = "DB";
         public static int m_nSuccessCount = 0, m_nFalseCount = 0;
+
+        public static Thread m_threadAutoUpload = null;
         /// <summary>
         /// 分组病人数据集
         /// </summary>

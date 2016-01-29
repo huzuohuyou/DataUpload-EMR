@@ -81,35 +81,29 @@ namespace DataExport
         private void button1_Click(object sender, EventArgs e)
         {
             string _strSQL = string.Empty;
-            DataGridViewRow var = dataGridView1.CurrentRow;
-            string _strTableName = var.Cells["TABLE_NAME"].Value.ToString();
-            string _strExportFlag = var.Cells["EXPORTFLAG"].Value.ToString().ToUpper();
-            string _strMs = var.Cells["MS"].Value.ToString();
-            //string _strSQLValue = rtb_sql.Text.Trim();
-            //if (_strSQLValue=="")
-            //{
-            //    MessageBox.Show("SQL内容为空.");
-            //    return;
-            //}
-            _strSQL = string.Format("select count(*) mycount from pt_tables_dict where  TABLE_NAME = '{0}'", _strTableName);
-            int _nCount = int.Parse(CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR").Rows[0]["mycount"].ToString());
-            if (0 == _nCount)
+            int _nResult = 1;
+            foreach (DataGridViewRow var in dataGridView1.Rows)
             {
-                _strSQL = string.Format("insert into pt_tables_dict(table_name,MS,exportflag) values('{0}','{1}','{2}')", _strTableName, _strMs, _strExportFlag);
+                string _strTableName = var.Cells["TABLE_NAME"].Value.ToString();
+                string _strExportFlag = var.Cells["EXPORTFLAG"].Value.ToString().ToUpper();
+                if (_strExportFlag!="TRUE")
+                {
+                    _strExportFlag = "FALSE";
+                }
+                string _strMs = var.Cells["MS"].Value.ToString();
+                _strSQL = string.Format("select count(*) mycount from pt_tables_dict where  TABLE_NAME = '{0}'", _strTableName);
+                int _nCount = int.Parse(CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR").Rows[0]["mycount"].ToString());
+                if (0 == _nCount)
+                {
+                    _strSQL = string.Format("insert into pt_tables_dict(table_name,MS,exportflag) values('{0}','{1}','{2}')", _strTableName, _strMs, _strExportFlag);
+                }
+                else
+                {
+                    _strSQL = string.Format("update pt_tables_dict set table_name= '{0}',ms = '{1}' ,exportflag ='{2}' where table_name = '{0}'", _strTableName, _strMs, _strExportFlag);
+                }
+                _nResult = _nResult * CommonFunction.OleExecuteNonQuery(_strSQL, "EMR");
             }
-            else
-            {
-                _strSQL = string.Format("update pt_tables_dict set table_name= '{0}',ms = '{1}' ,exportflag ='{2}' where table_name = '{0}'", _strTableName, _strMs, _strExportFlag);
-            }
-
-            //if ((DialogResult.OK == MessageBox.Show("确定保存?", "Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)) && (_strSQLValue.Length > 0))
-            //{
-            //    ExportDB.SaveSQL(_strSQLValue, _strTableName);
-            //if (1 == CommonFunction.OleExecuteNonQuery(_strSQL, "EMR"))
-            //{
-            //    MessageBox.Show("保存成功!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            if (1 == CommonFunction.OleExecuteNonQuery(_strSQL, "EMR"))
+            if (_nResult > 0)
             {
                 uctlMessageBox.frmDisappearShow("保存成功！");
             }
@@ -117,7 +111,6 @@ namespace DataExport
             {
                 uctlMessageBox.frmDisappearShow("保存失败,详见错误日志。");
             }
-            //}
         }
     
 
@@ -208,7 +201,14 @@ namespace DataExport
             DataGridViewRow var = dataGridView1.CurrentRow;
             string _strTableName = var.Cells["TABLE_NAME"].Value.ToString();
             string _strSQLValue = rtb_sql.Text.Trim();
-            ExportDB.SaveSQL(_strSQLValue, _strTableName);
+            if (ExportDB.SaveSQL(_strSQLValue, _strTableName))
+            {
+                uctlMessageBox.frmDisappearShow("保存成功！");
+            }
+            else
+            {
+                uctlMessageBox.frmDisappearShow("保存失败,详见错误日志。");
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)

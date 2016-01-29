@@ -207,9 +207,16 @@ namespace DataExport
             if ("TRUE"==GetConfig("UploadFlag"))
             {
                 mf.SetMainFormState();
-                Thread t1 = new Thread(new ThreadStart(AutoUpload.AutomaticUploaded));
-                t1.Start();
+                PublicVar.m_threadAutoUpload = new Thread(new ThreadStart(AutoUpload.AutomaticUploaded));
+                PublicVar.m_threadAutoUpload.Start();
                 //AutoUpload.AutomaticUploaded();
+            }
+            else
+            {
+                if (PublicVar.m_threadAutoUpload!=null)
+                {
+                    PublicVar.m_threadAutoUpload.Abort();
+                }
             }
         }
 

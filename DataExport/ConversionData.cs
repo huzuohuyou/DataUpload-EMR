@@ -45,7 +45,7 @@ namespace DataExport
                         {
                             if (_drTemp[_dcColumn].ToString() == _drDict["LOCAL_VALUE"].ToString())
                             {
-                                RemoteMessage.SendMessage("正在转换字典[" + _dcColumn.Caption.PadRight(30, '.') + "]:" + _drTemp[_dcColumn].ToString().PadRight(5,'　') + _drDict["TARGET_VALUE"].ToString());
+                                RemoteMessage.SendMessage("convert dict [" + _dcColumn.Caption + "]".PadRight(20, '.') + _drTemp[_dcColumn].ToString().PadRight(5, '　') + _drDict["TARGET_VALUE"].ToString());
                                 _drTemp[_dcColumn] = _drDict["TARGET_VALUE"].ToString();
                             }
                         }
@@ -62,27 +62,36 @@ namespace DataExport
         /// <param name="_dtDictDetail"></param>
         public static DataTable ExchangeData(DataTable p_dtOnePatInfo)
         {
-            if (p_dtOnePatInfo == null)
+            try
             {
-                CommonFunction.WriteError("无病人信息.ExchangeData失败");
-                return null;
-            }
-            string _strSQL = string.Format("select FIELD_NAME,LOCAL_VALUE,TARGET_VALUE FROM pt_comparison ");
-            DataTable _dtDict = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
-            foreach (DataColumn _dcColumn in p_dtOnePatInfo.Columns)
-            {
-                DataRow _drTemp = p_dtOnePatInfo.Rows[0];
-                DataRow[] _arrDataRow = _dtDict.Select("FIELD_NAME = '" + _dcColumn.Caption.ToUpper() + "'");
-                foreach (DataRow _drDict in _arrDataRow)
+                if (p_dtOnePatInfo == null || p_dtOnePatInfo.Rows.Count<=0)
                 {
-                    if (_drTemp[_dcColumn].ToString().Trim() == _drDict["LOCAL_VALUE"].ToString().Trim())
+                    CommonFunction.WriteError("无病人信息.ExchangeData失败");
+                    return p_dtOnePatInfo;
+                }
+                string _strSQL = string.Format("select FIELD_NAME,LOCAL_VALUE,TARGET_VALUE FROM pt_comparison ");
+                DataTable _dtDict = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
+                foreach (DataColumn _dcColumn in p_dtOnePatInfo.Columns)
+                {
+                    DataRow _drTemp = p_dtOnePatInfo.Rows[0];
+                    DataRow[] _arrDataRow = _dtDict.Select("FIELD_NAME = '" + _dcColumn.Caption.ToUpper() + "'");
+                    foreach (DataRow _drDict in _arrDataRow)
                     {
-                        RemoteMessage.SendMessage("正在转换字典[" + _dcColumn.Caption.PadRight(30, '.') + "]:" + _drTemp[_dcColumn].ToString().PadRight(5, '　') + _drDict["TARGET_VALUE"].ToString());
-                        _drTemp[_dcColumn] = _drDict["TARGET_VALUE"].ToString();
+                        if (_drTemp[_dcColumn].ToString().Trim() == _drDict["LOCAL_VALUE"].ToString().Trim())
+                        {
+                            RemoteMessage.SendMessage("正在转换字典[" + _dcColumn.Caption.PadRight(30, '.') + "]:" + _drTemp[_dcColumn].ToString().PadRight(5, '　') + _drDict["TARGET_VALUE"].ToString());
+                            _drTemp[_dcColumn] = _drDict["TARGET_VALUE"].ToString();
+                        }
                     }
                 }
+                return p_dtOnePatInfo;
             }
-            return p_dtOnePatInfo;
+            catch (Exception exp)
+            {
+                RemoteMessage.SendMessage("异常ExchangeData" + exp.Message);
+                return p_dtOnePatInfo;
+            }
+
         }
 
       

@@ -1303,8 +1303,8 @@ namespace ToolFunction
                 }
                 catch (Exception exp)
                 {
-                    WriteError("DB",exp.Message);
-                    //throw;
+                    WriteError("DB", exp.Message + p_strSql);
+                    return -1;
                 }
             }
             return _iExeCount;

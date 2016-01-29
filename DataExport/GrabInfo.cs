@@ -562,6 +562,7 @@ namespace DataExport
         /// <returns>病人信息</returns>
         public static void GetPatientData()
         {
+            PublicVar.m_strExportType = uctlBaseConfig.GetConfig("ExportType");
             PublicVar.m_nSuccessCount = 0;
             PublicVar.m_nFalseCount = 0;
             DataTable _dtSql = GrabInfo.GetConfigSQL();
@@ -573,6 +574,7 @@ namespace DataExport
                     RemoteMessage.SendMessage("查询病人信息" + dr["TABLE_NAME"].ToString() + "---" + drpat["PATIENT_ID"].ToString() + "---" + drpat["VISIT_ID"].ToString());
                     DataTable _dtOnePatOneObj = CommonFunction.OleExecuteBySQL(_strSQL, dr["TABLE_NAME"].ToString(), "EMR");
                     _dtOnePatOneObj = ConversionData.ExchangeData(_dtOnePatOneObj);
+                    //RemoteMessage.SendMessage("==开始执行导出...");
                     ExeExport(_dtOnePatOneObj);                   
                 }
             }
@@ -631,7 +633,8 @@ namespace DataExport
         public static void ExeExport(DataTable p_dtOnePatInfo)
         {
             IExport ie = null;
-            string _strExportType = uctlBaseConfig.GetConfig("ExportType");
+            string _strExportType = PublicVar.m_strExportType;
+            //RemoteMessage.SendMessage("==导出方式" + _strExportType + "...");
             switch (_strExportType)
             {
                 case "DB":

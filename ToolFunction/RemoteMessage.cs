@@ -29,18 +29,12 @@ namespace ToolFunction
         /// </summary>
         public static void InitClient()
         {
-            try
+            if (obj == null)
             {
-                if (obj == null)
-                {
-                    TcpChannel channel = new TcpChannel();
-                    ChannelServices.RegisterChannel(channel, false);
-                    IMessage _obj = (IMessage)Activator.GetObject(typeof(IMessage), "tcp://localhost:8085/ConsoleMessage");
-                    obj = _obj;
-                }
-            }
-            catch (Exception)
-            {
+                TcpChannel channel = new TcpChannel();
+                ChannelServices.RegisterChannel(channel, false);
+                IMessage _obj = (IMessage)Activator.GetObject(typeof(IMessage), "tcp://localhost:8085/ConsoleMessage");
+                obj = _obj;
             }
         }
 

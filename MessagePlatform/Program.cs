@@ -13,17 +13,23 @@ namespace MessagePlatform
 {
     public class Program
     {
-
+        /// <summary>
+        /// 抛出的信息
+        /// </summary>
         public static string _strTemp = "";
 
         static void Main(string[] args)
         {
             try
             {
+                //声明一个TCP通道指定端口8085
                 TcpChannel channel = new TcpChannel(8085);
+                //注册通道
                 ChannelServices.RegisterChannel(channel, false);
+                //从哪个类，发出消息
                 RemotingConfiguration.RegisterWellKnownServiceType(typeof(ToolFunction.ConsoleMessage), "ConsoleMessage", WellKnownObjectMode.SingleCall);
                 System.Console.WriteLine("Server:Press Enter key to exit");
+                //等待输入
                 System.Console.ReadLine();
             }
             catch (Exception)
@@ -48,7 +54,6 @@ namespace MessagePlatform
                 CommonFunction.WriteError("读取信息错误:" + exp.Message);
                 Thread.Sleep(100);
             }
-            //Console.WriteLine("_strTemp:" + _strTemp + "---" + "_strLine:" + _strLine);
             if (_strTemp != _strLine && "" != _strLine)
             {
                 _strTemp = _strLine;
