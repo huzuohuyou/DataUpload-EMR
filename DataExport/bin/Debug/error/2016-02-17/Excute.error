@@ -1,0 +1,1296 @@
+[TIME]:2016/2/17 16:35:58
+[ERROR]:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Runtime.Remoting.Channels.SocketStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   在 System.Runtime.Remoting.Channels.SocketHandler.ReadFromSocket(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Runtime.Remoting.Channels.SocketHandler.Read(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Runtime.Remoting.Channels.SocketHandler.ReadAndMatchFourBytes(Byte[] buffer)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpSocketHandler.ReadAndMatchPreamble()
+   在 System.Runtime.Remoting.Channels.Tcp.TcpSocketHandler.ReadVersionAndOperation(UInt16& operation)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientSocketHandler.ReadHeaders()
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:36:03
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:01
+[ERROR]:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Runtime.Remoting.Channels.SocketStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   在 System.Runtime.Remoting.Channels.SocketHandler.ReadFromSocket(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Runtime.Remoting.Channels.SocketHandler.Read(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Runtime.Remoting.Channels.SocketHandler.ReadAndMatchFourBytes(Byte[] buffer)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpSocketHandler.ReadAndMatchPreamble()
+   在 System.Runtime.Remoting.Channels.Tcp.TcpSocketHandler.ReadVersionAndOperation(UInt16& operation)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientSocketHandler.ReadHeaders()
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:06
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:10
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:15
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:19
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:23
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:27
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:31
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:35
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:39
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:43
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:47
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:51
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:55
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:41:59
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:42:03
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:42:07
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:42:11
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:42:15
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:42:19
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:42:23
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:42:27
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:42:32
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:42:36
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:42:40
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:42:44
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:42:48
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:42:52
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:42:56
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:00
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:04
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:08
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:12
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:16
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:20
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:24
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:28
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:32
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:36
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:40
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:44
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:49
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:53
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:43:57
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:01
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:05
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:09
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:13
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:17
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:21
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:25
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:29
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:33
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:37
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:41
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:45
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:49
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:53
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:44:57
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:45:01
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:45:06
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:45:10
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:45:14
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:45:18
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:45:22
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+
+[TIME]:2016/2/17 16:45:26
+[ERROR]:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:8085
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(AddressFamily family)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 ToolFunction.IMessage.ShowMess(String p_strMess)
+   在 ToolFunction.RemoteMessage.SendMessage(String p_strMess) 位置 E:\Github\DataUpload-EMR\ToolFunction\RemoteMessage.cs:行号 53
+

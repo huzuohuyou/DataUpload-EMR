@@ -54,9 +54,9 @@ namespace DataExport
                     _strSQL = string.Format("select m.PATIENT_ID,m.VISIT_ID  from  pat_visit m  where  {0} >'{1}' and {0}< '{2}' ", _strTimeKind, dt_sta.Text, dt_end.Text);
                 }
             }
-            PublicVar.m_dsPatients = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
+            PublicVar.m_dtPatients = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
             ExportDB.m_strTimeRange = "[时间]:" + dt_sta.Text + "至" + dt_end.Text;
-            dataGridView1.DataSource = PublicVar.m_dsPatients;
+            dataGridView1.DataSource = PublicVar.m_dtPatients;
             //RemoteMessage.SendMessage("==========================[启动文件下载线程]==========================");
             //EmrFile ef = new EmrFile(dt_sta.Text, dt_end.Text);
             //Thread t = new Thread(ef.PreDownLoadFile);

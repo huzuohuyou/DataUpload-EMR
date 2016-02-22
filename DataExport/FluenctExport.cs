@@ -74,10 +74,12 @@ namespace DataExport
        /// <param name="p_strVisitId"></param>
         public void ExportOnePatInfoForOneObj(string p_strObjectName,string p_strPatientId, string p_strVisitId)
         {
-            GrabInfo.InitPatDBInfo(p_strPatientId, p_strVisitId);
+            //GrabInfo.InitPatDBInfo(p_strPatientId, p_strVisitId);
             DataSet _dsOnePatInfo = GrabInfo.GrabPatientInfo(p_strObjectName, p_strPatientId, p_strVisitId);
             DataTable _dt   = ConversionData.ExchangeData(_dsOnePatInfo.Tables[0]);
-            GrabInfo.ExeExport(_dt.DataSet, p_strObjectName, p_strPatientId, p_strVisitId);
+            //GrabInfo.ExeExport(_dt.DataSet, p_strObjectName, p_strPatientId, p_strVisitId);
+            ExportXml ie = new ExportXml(_dsOnePatInfo, p_strObjectName, p_strPatientId, p_strVisitId);
+            ie.Export();
         }
 
 
@@ -104,22 +106,22 @@ namespace DataExport
         /// </summary>
         public void ExportPatsInfoForAllObj()
         {
-            string _strSQL = string.Format("select * from PT_TABLES_DICT where exportflag  = 'TRUE'");
-            DataTable _dtObject = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
+            //string _strSQL = string.Format("select * from PT_TABLES_DICT where exportflag  = 'TRUE'");
+            //DataTable _dtObject = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
             DataTable _dtPats = m_dtPats;
-            foreach (DataRow _drOBject in _dtObject.Rows)
+            //foreach (DataRow _drOBject in _dtObject.Rows)
+            //{
+            string _strObjectName = PublicVar.m_strCurrentObj;
+            _dtPats.TableName = PublicVar.m_strCurrentObj;
+            foreach (DataRow var in _dtPats.Rows)
             {
-                string _strObjectName = _drOBject["TABLE_NAME"].ToString();
-                _dtPats.TableName = _strObjectName;
-                foreach (DataRow var in _dtPats.Rows)
-                {
-                    string _strPatinetId = var["PATIENT_ID"].ToString();
-                    string _strVisitId = var["VISIT_ID"].ToString();
-                    PublicVar.m_strCurrentPatientId = _strPatinetId;
-                    PublicVar.m_strCurrentVisitId = _strVisitId;
-                    ExportOnePatInfoForOneObj(_strObjectName, _strPatinetId, _strVisitId);
-                }
+                string _strPatinetId = var["PATIENT_ID"].ToString();
+                string _strVisitId = var["VISIT_ID"].ToString();
+                PublicVar.m_strCurrentPatientId = _strPatinetId;
+                PublicVar.m_strCurrentVisitId = _strVisitId;
+                ExportOnePatInfoForOneObj(_strObjectName, _strPatinetId, _strVisitId);
             }
+            //}
         }
 
         /// <summary>

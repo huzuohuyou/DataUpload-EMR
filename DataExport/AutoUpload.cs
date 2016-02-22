@@ -54,7 +54,7 @@ namespace DataExport
             while (true)
             {
                 string _strSQL = uctlBaseConfig.GetConfig("AdapterSQL");
-                PublicVar.m_dsPatients = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
+                PublicVar.m_dtPatients = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
 
                 //每24小时执行一次
                 //Thread t1 = new Thread(new ThreadStart(GrabInfo.GetPatientData));

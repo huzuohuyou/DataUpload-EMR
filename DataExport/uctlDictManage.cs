@@ -17,9 +17,17 @@ namespace DataExport
         public uctlDictManage()
         {
             InitializeComponent();
-            string _strSQL = string.Format("select * from PT_COMPARISON");
-            DataTable _dtDict = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
-            dataGridView2.DataSource = _dtDict.DefaultView;
+            try
+            {
+                string _strSQL = string.Format("select * from PT_COMPARISON");
+                DataTable _dtDict = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
+                dataGridView2.DataSource = _dtDict.DefaultView;
+            }
+            catch (Exception EX)
+            {
+                CommonFunction.WriteError("uctlDictManage" + EX.Message);
+            }
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -71,7 +79,7 @@ namespace DataExport
 
         public string GetCurrentDictItem()
         {
-            if (dataGridView4.CurrentRow.Cells["LOCAL"].Value == null)
+            if (dataGridView3.CurrentRow.Cells["LOCAL"].Value == null)
             {
                 return "";
             }

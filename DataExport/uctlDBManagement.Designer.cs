@@ -271,10 +271,12 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle3.NullValue = false;
             this.EXPORTFLAG.DefaultCellStyle = dataGridViewCellStyle3;
+            this.EXPORTFLAG.FalseValue = "false";
             this.EXPORTFLAG.HeaderText = "#";
             this.EXPORTFLAG.Name = "EXPORTFLAG";
             this.EXPORTFLAG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.EXPORTFLAG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.EXPORTFLAG.TrueValue = "true";
             this.EXPORTFLAG.Width = 30;
             // 
             // TABLE_NAME

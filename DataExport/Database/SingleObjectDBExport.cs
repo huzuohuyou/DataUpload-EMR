@@ -169,14 +169,16 @@ namespace DataExport
                     string m_strValues = CombineValues(drValue);
                     if (!ExeCuteSQL(m_strTableName, m_strColumns, m_strValues))
                     {
-                        RemoteMessage.SendMessage("[执行].....................FALSE");
+                        RemoteMessage.SendMessage("[执行]======================================[FALSE]");
                         PublicVar.m_nFalseCount++;
+                        PublicVar.m_nObjFalseCount++;
                         WritLog();
                     }
                     else
                     {
-                        RemoteMessage.SendMessage("[执行].....................TRUE");
+                        RemoteMessage.SendMessage("[执行]======================================[TRUE]");
                         PublicVar.m_nSuccessCount++;
+                        PublicVar.m_nObjSuccessCount++;
                     }
                 }
             }

@@ -33,7 +33,7 @@ namespace DataExport
 
         public void InitData()
         {
-            string _strSQL = string.Format("select TABLE_NAME,MS  from pt_tables_dict ");
+            string _strSQL = string.Format("select TABLE_NAME,MS,EXPORTFLAG  from pt_tables_dict ");
             DataTable _dtTemp = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
             dataGridView1.DataSource = _dtTemp;
 
@@ -53,8 +53,11 @@ namespace DataExport
 
             if (true==ExportXml.SaveXML(_strXML, _strTableName))
             {
-                MessageBox.Show("保存成功.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } 
+                uctlMessageBox.frmDisappearShow("保存成功！");
+            }else
+            {
+                uctlMessageBox.frmDisappearShow("保存失败,详见错误日志。");
+            }
             
         }
 
@@ -126,9 +129,128 @@ namespace DataExport
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            SaveChapter();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ((DataTable)dataGridView1.DataSource).Rows.Add();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.OK == MessageBox.Show(this, "确定删除", "", MessageBoxButtons.OKCancel))
+            {
+                DataGridViewRow var = dataGridView1.CurrentRow;
+                string _strTableName = var.Cells["TABLE_NAME"].Value.ToString();
+                string _strSQL = string.Format("delete pt_tables_dict where table_name = '{0}'", _strTableName);
+                CommonFunction.OleExecuteNonQuery(_strSQL, "EMR");
+                InitData();
+            } 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string _strSQL = string.Empty;
+            int _nResult = 1;
+            foreach (DataGridViewRow var in dataGridView1.Rows)
+            {
+                string _strTableName = var.Cells["TABLE_NAME"].Value.ToString();
+                string _strExportFlag = var.Cells["EXPORTFLAG"].Value.ToString().ToUpper();
+
+                //string _strExportFlag2 = var.Cells["Column1"].Value.ToString().ToUpper();
+                
+                if (_strExportFlag != "TRUE")
+                {
+                    _strExportFlag = "FALSE";
+                }
+                string _strMs = var.Cells["MS"].Value.ToString();
+                _strSQL = string.Format("select count(*) mycount from pt_tables_dict where  TABLE_NAME = '{0}'", _strTableName);
+                int _nCount = int.Parse(CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR").Rows[0]["mycount"].ToString());
+                if (0 == _nCount)
+                {
+                    _strSQL = string.Format("insert into pt_tables_dict(table_name,MS,exportflag) values('{0}','{1}','{2}')", _strTableName, _strMs, _strExportFlag);
+                }
+                else
+                {
+                    _strSQL = string.Format("update pt_tables_dict set table_name= '{0}',ms = '{1}' ,exportflag ='{2}' where table_name = '{0}'", _strTableName, _strMs, _strExportFlag);
+                }
+                _nResult = _nResult * CommonFunction.OleExecuteNonQuery(_strSQL, "EMR");
+            }
+            if (_nResult > 0)
+            {
+                uctlMessageBox.frmDisappearShow("保存成功！");
+            }
+            else
+            {
+                uctlMessageBox.frmDisappearShow("保存失败,详见错误日志。");
+            }
+        }
+
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            //string _strSQLValue = ExportDB.GetSQL(dataGridView1.CurrentRow.Cells["TABLE_NAME"].Value.ToString());
+            //rtb_sql.Text = _strSQLValue;
+            string _strTableName = dataGridView1.CurrentRow.Cells["TABLE_NAME"].Value.ToString();
+            this.rtb_xml.Text = ExportXml.GetXML(_strTableName);
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dataGridView2.CurrentCell.ColumnIndex == 4)
+            {
+                string _strTableChapter = dataGridView2.CurrentRow.Cells["CHAPTER_NAME"].Value.ToString();
+                string _strDataDetail = dataGridView2.CurrentRow.Cells["DATA_DETAIL"].Value.ToString();
+                DBTemplet dt = new DBTemplet(_strTableChapter, _strDataDetail);
+                dt.ShowDialog();
+                if (dt.m_bSave)
+                {
+                    dataGridView2.CurrentRow.Cells["DATA_DETAIL"].Value = dt.m_strDataDetail;
+                    dataGridView2.CurrentRow.Cells["CLASS"].Value = dt.m_strClass;
+                    SaveChapter();
+                }
+
+            }
+        }
+
+        public void SaveChapter()
+        {
+            DataGridViewRow _drObject = dataGridView1.CurrentRow;
+            DataGridViewRow _drChapter = dataGridView2.CurrentRow;
+            string _strTableName = _drObject.Cells["TABLE_NAME"].Value.ToString();
+            string _strChapterName = _drChapter.Cells["CHAPTER_NAME"].Value.ToString();
+            string _strClass = _drChapter.Cells["CLASS"].Value.ToString();
+            string _strDataDetail = _drChapter.Cells["DATA_DETAIL"].Value.ToString().Replace("'", "''");
+            string _strSQL = @"update pt_chapter_dict set data_detail = '{0}', class = '{1}' where table_name = '{2}' and chapter_name = '{3}'";
+            _strSQL = string.Format(_strSQL, _strDataDetail, _strClass, _strTableName, _strChapterName);
+            if (1 == CommonFunction.OleExecuteNonQuery(_strSQL, "EMR"))
+            {
+                uctlMessageBox.frmDisappearShow("保存成功！");
+            }
+            else
+            {
+                uctlMessageBox.frmDisappearShow("保存失败,详见错误日志。");
+            }
+        }
+
+        private void dataGridView2_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string _strType = GetCurrentChapterClass();
+        }
+
+        /// <summary>
+        /// 获取当前章类别
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentChapterClass()
+        {
+            if (dataGridView2.CurrentRow != null)
+            {
+                return dataGridView2.CurrentRow.Cells["CLASS"].Value.ToString();
+            }
+            return "";
+        }
      
     }
 }

@@ -506,9 +506,17 @@ namespace DataExport
 
         public void SetSQL()
         {
-            DataSet _dsXml = GetSQL();
-            m_dtSQL = _dsXml.Tables[0];
-            this.dataGridView1.DataSource = m_dtSQL.DefaultView;
+            try
+            {
+                DataSet _dsXml = GetSQL();
+                m_dtSQL = _dsXml.Tables[0];
+                this.dataGridView1.DataSource = m_dtSQL.DefaultView;
+            }
+            catch (Exception EX)
+            {
+                CommonFunction.WriteError(EX.Message);
+            }
+            
 
         }
 
@@ -706,7 +714,7 @@ namespace DataExport
             {
                 progressBar1.Value++;
                 string _strName = _dc.Caption;
-                string _strValue = string.Format(@"{0}|{1}", "PAT_VISIT",_dc.Caption);
+                string _strValue = string.Format(@"select {1} from {0} where patient_id = '@PATIENT_ID' AND VISIT_ID = @VISIT_ID", "PAT_VISIT",_dc.Caption);
                 DataRow[] _arrTemp = m_dtSQL.Select(string.Format("name = '{0}'", _strName));
                 if (_arrTemp.Length > 0)
                 {
@@ -726,7 +734,7 @@ namespace DataExport
             {
                 progressBar1.Value++;
                 string _strName = _dc.Caption;
-                string _strValue = string.Format(@"{0}|{1}","PAT_MASTER_INDEX", _dc.Caption);
+                string _strValue = string.Format(@"select {1} from {0} where patient_id = '@PATIENT_ID' AND VISIT_ID = @VISIT_ID", "PAT_MASTER_INDEX", _dc.Caption);
                 DataRow[] _arrTemp = m_dtSQL.Select(string.Format("name = '{0}'", _strName));
                 if (_arrTemp.Length > 0)
                 {

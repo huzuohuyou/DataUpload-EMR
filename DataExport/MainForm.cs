@@ -86,7 +86,7 @@ namespace DataExport
                 m_proRemoteMessage = Process.Start(_strExePath);
                 RemoteMessage.InitClient();
                 string _strSQL = uctlBaseConfig.GetConfig("AdapterSQL");
-                PublicVar.m_dsPatients = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
+                PublicVar.m_dtPatients = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
                 Thread t1 = new Thread(new ThreadStart(GrabInfo.GetPatientData));
                 t1.Start();
             }

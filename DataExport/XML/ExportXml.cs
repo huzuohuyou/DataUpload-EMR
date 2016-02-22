@@ -10,6 +10,7 @@ using ConfirmFileName;
 using ToolFunction;
 using DataExport.外部接口;
 using DataExport.文件接口;
+using System.Collections;
 
 namespace DataExport
 {
@@ -23,8 +24,14 @@ namespace DataExport
         public string m_strVisitId = string.Empty;
         public string m_strFileNo = string.Empty;
         public DataSet m_dsPatInfo = new DataSet();
+        public DataTable m_dtPatInfo = new DataTable();
 
         public ExportXml() { }
+
+        public ExportXml(DataTable p_dtPatInfo)
+        {
+            m_dtPatInfo = p_dtPatInfo;
+        }
 
         public ExportXml(DataSet p_dsPatInfo, string p_strObjectName, string p_strPatientId, string p_strVisitId)
         {
@@ -40,8 +47,7 @@ namespace DataExport
 
         public void Export()
         {
-            //ReplaceValue(PublicProperty.ExportParam[0]);
-            DoReplace(m_dsPatInfo);
+            DoReplace(m_dtPatInfo);
         }
 
         public static DataTable GetObject(string p_strObjectName)
@@ -62,7 +68,7 @@ namespace DataExport
         public void ReplaceValue(object o)
         {
             DataSet ds = (DataSet)o;
-            DoReplace(ds);
+            DoReplace(m_dtPatInfo);
         }
 
         public string GetFixXml(string p_strXml) 
@@ -76,40 +82,42 @@ namespace DataExport
         /// <param name="p_strOldValue"></param>
         /// <param name="p_dtSource"></param>
         /// <returns></returns>
-        public string DoTableReplace( string p_strXml, DataTable p_dtSource)
+        public string DoTableReplace(string p_strXml, string p_strOldValue, string p_strSQL, string p_strPatientId, string p_strVisitId)
         {
-
-            DataTable _dtSoucr = p_dtSource;
-            string _strNewXml = string.Empty;
-            string _strSimpleXml = GetFixXml(_dtSoucr.TableName);
-            if (p_dtSource.Rows.Count > 0)
+            try
             {
+                string _strSQL = p_strSQL.Replace("@PATIENT_ID", p_strPatientId).Replace("@VISIT_ID", p_strVisitId);
+                DataTable _dtSoucr = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
+                string _strMultiXml = string.Empty;
+                ArrayList _listField = new ArrayList();
+                Regex reg = new Regex(@"\[[^\[^\]]*\]");
+                int _nCount = reg.Matches(p_strOldValue).Count;
+                for (int i = 0; i < _nCount; i++)
+                {
+                    string _strValue = reg.Matches(p_strOldValue)[i].Captures[0].Value;
+                    _listField.Add(_strValue);
+                }
                 foreach (DataRow _drSource in _dtSoucr.Rows)
                 {
-                    string _strMultiXml = GetFixXml(_dtSoucr.TableName);
-                    foreach (DataColumn _dcSource in _dtSoucr.Columns)
+                    string _strNewXml = p_strOldValue;
+                    _strNewXml = ClearXml(_strNewXml);
+                    foreach (string var in _listField)
                     {
-                        string _strOldValue = _dcSource.Caption ;
-                        string _strNewValue = _drSource[_dcSource].ToString();
-                        if (_strMultiXml.IndexOf(_strOldValue) > 0)
-                        {
-                            _strMultiXml = _strMultiXml.Replace(_strOldValue, _strNewValue);
-                        }
+                        _strNewXml = _strNewXml.Replace(var, _drSource[var.Replace("[", "").Replace("]", "")].ToString());
                     }
-                    _strNewXml += _strMultiXml;
+                    _strMultiXml += _strNewXml;
                 }
-                _strNewXml = ClearXml(_strNewXml);
+                if (p_strXml.IndexOf(p_strOldValue) > 0)
+                {
+                    p_strXml = p_strXml.Replace(p_strOldValue, _strMultiXml);
+                }
+                return p_strXml;
             }
-            else//没有信息内容为空
+            catch (Exception ex)
             {
-                _strNewXml = "";
+                CommonFunction.WriteError("DoTableReplace" + ex.Message);
             }
-            if (p_strXml.IndexOf(_strSimpleXml) > 0)
-            {
-                p_strXml = p_strXml.Replace(_strSimpleXml, _strNewXml);
-            }
-            //p_strXml = ClearXml(p_strXml);
-            return p_strXml;
+            return null;
         }
 
         /// <summary>
@@ -128,25 +136,51 @@ namespace DataExport
         /// <param name="p_strXml"></param>
         /// <param name="p_dtSource"></param>
         /// <returns></returns>
-        public string DoSimpleReplace(string p_strXml, DataTable p_dtSource)
+        public string DoDBReplace(string p_strXml, string p_strOldValue, string p_strSQL, string p_strPatientId, string p_strVisitId)
         {
-            DataTable _dtSoucr = p_dtSource;
-            string _strXml = p_strXml;
-            foreach (DataRow _drSource in _dtSoucr.Rows)
+            try
             {
-                foreach (DataColumn _dcSource in _dtSoucr.Columns)
+                string _strXml = p_strXml;
+                string _strSQL = p_strSQL.Replace("@PATIENT_ID", p_strPatientId).Replace("@VISIT_ID", p_strVisitId);
+                string _strNewValue = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR").Rows[0][0].ToString();
+                if (_strXml.IndexOf(p_strOldValue) > 0)
                 {
-                    string _strOldValue = _dcSource.Caption;
-                    string _strNewValue = _drSource[_dcSource].ToString();
-                    if (_strXml.IndexOf(_strOldValue) > 0)
-                    {
-                        _strXml = _strXml.Replace(_strOldValue, _strNewValue);
-                    }
-
+                    _strXml = _strXml.Replace(p_strOldValue, _strNewValue);
+                    RemoteMessage.SendMessage(p_strOldValue + "....................." + _strNewValue);
                 }
-               
+                return _strXml;
             }
-            return _strXml;
+            catch (Exception ex)
+            {
+                CommonFunction.WriteError("DoDBReplace"+ex.Message);
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// 接口内容替换
+        /// </summary>
+        /// <param name="p_strXml"></param>
+        /// <param name="p_dtSource"></param>
+        /// <returns></returns>
+        public string DoInterfaceReplace(string p_strXml, string p_strOldValue, string p_strPatientId, string p_strVisitId)
+        {
+            try
+            {
+                string _strXml = p_strXml;
+                string _strNewValue = SingleObjectDBExport.CallMrInfo2(p_strPatientId, int.Parse(p_strVisitId), p_strOldValue);
+                if (_strXml.IndexOf(p_strOldValue) > 0)
+                {
+                    _strXml = _strXml.Replace(p_strOldValue, _strNewValue);
+                    RemoteMessage.SendMessage(p_strOldValue + "....................." + _strNewValue);
+                }
+                return _strXml;
+            }
+            catch (Exception ex)
+            {
+                CommonFunction.WriteError("DoInterfaceReplace" + ex.Message);
+            }
+            return null;
         }
 
         /// <summary>
@@ -189,52 +223,42 @@ namespace DataExport
         /// 吴海龙
         /// </summary>
         /// <param name="p_dsSoucre"></param>
-        public void DoReplace(DataSet p_dsSoucre)
+        public void DoReplace(DataTable p_dtSoucre)
         {
-            if (p_dsSoucre == null)
-            {
-                return;
-            }
-            else
-            {
-                if (p_dsSoucre.Tables.Count == 0)
-                {
-                    return;
-                }
-            }
-            string _strXml = GetXML(p_dsSoucre);
+            string _strXml = GetXML(PublicVar.m_strCurrentObj);
             StringBuilder _sbXml = new StringBuilder(_strXml);
-            foreach (DataTable _dtSoucr in p_dsSoucre.Tables)
+            DataTable _dtSoucr = p_dtSoucre;
+            DataTable _dtFieldDict = CommonFunction.OleExecuteBySQL(string.Format(@"select  table_name,class,chapter_name,data_detail,'' CHOSE from pt_chapter_dict where table_name = '{0}'", PublicVar.m_strCurrentObj), "", PublicVar.m_strEmrConnection);
+            foreach (DataRow pat in _dtSoucr.Rows)
             {
-                if (IsTableSource(_dtSoucr))
+                string _strPatient_id = pat["PATIENT_ID"].ToString();
+                string _strVisitId = pat["VISIT_ID"].ToString();
+                foreach (DataRow var in _dtFieldDict.Rows)
                 {
-                    _strXml = DoTableReplace(_strXml, _dtSoucr);
+                    if (var["class"].ToString().ToUpper() == "DB")
+                    {
+                        _strXml = DoDBReplace(_strXml, var["chapter_name"].ToString(), var["data_detail"].ToString(), _strPatient_id, _strVisitId);
+                    }
+                    else if (var["class"].ToString().ToUpper() == "FILE")
+                    {
+                        _strXml = DoInterfaceReplace(_strXml, var["chapter_name"].ToString(), _strPatient_id, _strVisitId);
+                    }
+                    else if (var["class"].ToString().ToUpper() == "TABLE")
+                    {
+                        _strXml = DoTableReplace(_strXml, var["chapter_name"].ToString(), var["data_detail"].ToString(), _strPatient_id, _strVisitId);
+                    }
+                }
+                string _strFiledName = PublicVar.m_strCurrentObj + "_" + _strPatient_id + "_" + _strVisitId;
+                string _strPath = uctlBaseConfig.GetConfig("XmlOutPutPath");
+                if (SaveXML(_strXml, _strFiledName, _strPath))
+                {
+                    PublicVar.m_nObjSuccessCount++;
+                    PublicVar.m_nSuccessCount++;
                 }
                 else
                 {
-                    _strXml = DoSimpleReplace(_strXml, _dtSoucr);
-                }
-            }
-            string _strFiledName = m_strObjectName + "_" + m_strPatientId + "_" + m_strVisitId;
-            if (EmrInfoManagement.m_bHasFile)
-            {
-                if (IsUseInterface())
-                {
-                    UploadInterface ui = new UploadInterface();
-                    ui.CallInterface(_strXml, _strFiledName);
-                }
-                else
-                {
-                    if (SaveXML(_strXml, _strFiledName, "XmlOutPutPath"))
-                    {
-                        RemoteMessage.SendMessage("FILE_EXPORT_RESULT:".PadRight(50, '.') + "OK");
-                        uctlRestoreManage.RemoveRecord(m_strObjectName, m_strPatientId, m_strVisitId);
-                    }
-                    else
-                    {
-                        RemoteMessage.SendMessage("FILE_EXPORT_RESULT:".PadRight(50, '.') + "FALSE");
-                        uctlRestoreManage.LogFalsePatient(m_strObjectName, m_strPatientId, m_strVisitId);
-                    }
+                    PublicVar.m_nObjFalseCount++;
+                    PublicVar.m_nFalseCount++;
                 }
             }
         }
@@ -343,7 +367,7 @@ namespace DataExport
         }
 
         /// <summary>
-        /// 将xml保存配置的目录下在根目录 的xml文件加下
+        /// 将xml保存配置的目录下在根目录 的xml文件夹下
         /// </summary>
         /// <param name="p_strXML">xml文本</param>
         /// <param name="p_strFileName">文件名</param>
@@ -352,7 +376,7 @@ namespace DataExport
         {
             Configuration config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             ////写入<add>元素的Value
-            string _strPath = config.AppSettings.Settings[p_strDirectory].Value + "\\";
+            string _strPath = p_strDirectory;// config.AppSettings.Settings[p_strDirectory].Value + "\\";
             if (Directory.Exists(_strPath))
             {
                 _strPath = _strPath + p_strFileName + ".xml";
@@ -411,15 +435,10 @@ namespace DataExport
                 _listField.Add(_strField);
             }
             reg = new Regex(@"\{[^\{^\}]*\}");
-            //string _strXml = GetXML(p_strObject);
             _nCount = reg.Matches(_strXml).Count;
             for (int i = 0; i < _nCount; i++)
             {
                 string _strValue = reg.Matches(_strXml)[i].Captures[0].Value;
-                //if (_strValue.g)
-                //{
-                    
-                //}
                 _listField.Add(_strValue);
             }
             return _listField;

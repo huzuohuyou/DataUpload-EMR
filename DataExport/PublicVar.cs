@@ -13,7 +13,10 @@ namespace DataExport
         public static string m_strCurrentVisitId = string.Empty;
         public static string m_strEmrConnection = "EMR";
         public static string m_strExportType = "DB";
-        public static int m_nSuccessCount = 0, m_nFalseCount = 0;
+        public static string m_strCurrentObj = string.Empty;
+        public static DataTable m_dtFieldDict = null;
+        public static Dictionary<string,string> m_dictFieldDict = new Dictionary<string,string>();
+        public static int m_nSuccessCount = 0, m_nFalseCount = 0,m_nObjSuccessCount = 0,m_nObjFalseCount=0;
 
         public static Thread m_threadAutoUpload = null;
         /// <summary>
@@ -48,7 +51,7 @@ namespace DataExport
         /// <summary>
         /// 病人数据集
         /// </summary>
-        public static DataTable m_dsPatients = null;
+        public static DataTable m_dtPatients = null;
         /// <summary>
         /// 查询的SQL语句
         /// </summary>

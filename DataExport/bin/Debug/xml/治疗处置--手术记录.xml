@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<body>
+  <head>
+    <userid>test</userid>
+    <password>123</password>
+    <trans_no>E05.02.00.00</trans_no>
+  </head>
+  <resquest>
+    <E05.02.00.00>
+      <!--住院机构名称-->
+      <ORG_CODE>[住院机构名称]</ORG_CODE>
+      <!--住院号-->
+      <PATIENT_CODE>[住院号]</PATIENT_CODE>
+      <!--手术序号-->
+      <SN>[手术序号]</SN>
+      <!--手术/操作-名称-->
+      <SURGERY_NAME>[手术操作-名称]</SURGERY_NAME>
+      <!--手术/操作-医院内部代码-->
+      <SURGERY_CODE>[手术/操作-医院内部代码]</SURGERY_CODE>
+      <!--手术开始时间-->
+      <SURGERY_TIME>[手术开始时间]</SURGERY_TIME>
+      <!--手术结束时间-->
+      <SURGERY_ENDTIME>[手术结束时间]</SURGERY_ENDTIME>
+      <!--手术医生编号-->
+      <EMP_ID_DOC>[手术医生编号]</EMP_ID_DOC>
+      <!--手术医生-->
+      <EMP_NAME_DOC>[手术医生]</EMP_NAME_DOC>
+      <!--手术医生一助编号-->
+      <EMP_ID_ASSISTANT1>[手术医生一助编号]</EMP_ID_ASSISTANT1>
+      <!--手术医生一助-->
+      <EMP_NAME_ASSISTANT1>[手术医生一助]</EMP_NAME_ASSISTANT1>
+      <!--手术医生二助编号-->
+      <EMP_ID_ASSISTANT2>[手术医生二助编号]</EMP_ID_ASSISTANT2>
+      <!--手术医生二助-->
+      <EMP_NAME_ASSISTANT2>[手术医生二助]</EMP_NAME_ASSISTANT2>
+      <!--麻醉名称-->
+      <ANESTHESIA_NAME>[麻醉名称]</ANESTHESIA_NAME>
+      <!--手术结果-->
+      <SURGICAL_RESULTS>[手术结果]</SURGICAL_RESULTS>
+      <!--门诊医生编号-->
+      <EMP_ID_DOCMZ>[门诊医生编号]</EMP_ID_DOCMZ>
+      <!--门诊医生-->
+      <EMP_NAME_DOCMZ>[门诊医生]</EMP_NAME_DOCMZ>
+      <!--术后诊断-->
+      <DIAGNOSIS>[术后诊断]</DIAGNOSIS>
+      <!--手术切口愈合等级代码-->
+      
+      <!--手术切口名称-->
+      {
+      <INCISION_NAME>[手术切口名称]</INCISION_NAME>
+      <INCISION_CODE>[手术切口愈合等级代码]</INCISION_CODE>
+      }
+    </E05.02.00.00>
+  </resquest>
+</body>
+

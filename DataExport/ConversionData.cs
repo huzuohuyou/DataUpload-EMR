@@ -64,17 +64,28 @@ namespace DataExport
         {
             try
             {
-                if (p_dtOnePatInfo == null || p_dtOnePatInfo.Rows.Count<=0)
-                {
-                    CommonFunction.WriteError("无病人信息.ExchangeData失败");
-                    return p_dtOnePatInfo;
-                }
-                string _strSQL = string.Format("select FIELD_NAME,LOCAL_VALUE,TARGET_VALUE FROM pt_comparison ");
-                DataTable _dtDict = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
+                //莫名的不好使 2016-02-18
+                //foreach (DataColumn _dcColumn in p_dtOnePatInfo.Columns)
+                //{
+                //    foreach (DataRow var in p_dtOnePatInfo.Rows)
+                //    {
+                //        DataRow _drTemp = var;
+                //        string _strKey = _dcColumn.Caption.ToUpper().Trim() + _drTemp[_dcColumn].ToString().Trim();
+                //        if (PublicVar.m_dictFieldDict.ContainsKey(_strKey))
+                //        {
+                //            RemoteMessage.SendMessage("正在转换字典[" + _dcColumn.Caption.PadRight(30, '.') + "]:" + _drTemp[_dcColumn].ToString().PadRight(5, '　') + PublicVar.m_dictFieldDict[_strKey].Trim());
+
+                //            _drTemp[_dcColumn] = PublicVar.m_dictFieldDict[_strKey].Trim();// _drDict["TARGET_VALUE"].ToString();
+                //        }
+                //    }
+                //}
+
+                DataTable _dtDict = PublicVar.m_dtFieldDict;
                 foreach (DataColumn _dcColumn in p_dtOnePatInfo.Columns)
                 {
                     DataRow _drTemp = p_dtOnePatInfo.Rows[0];
-                    DataRow[] _arrDataRow = _dtDict.Select("FIELD_NAME = '" + _dcColumn.Caption.ToUpper() + "'");
+                    DataRow[] _arrDataRow = _dtDict.Select("FIELD_NAME = '" + _dcColumn.Caption.ToUpper().Trim() + "'");
+                    //RemoteMessage.SendMessage("FIELD_NAME = '" + _dcColumn.Caption.ToUpper().Trim() + "'" + _arrDataRow.Length);
                     foreach (DataRow _drDict in _arrDataRow)
                     {
                         if (_drTemp[_dcColumn].ToString().Trim() == _drDict["LOCAL_VALUE"].ToString().Trim())
@@ -88,7 +99,8 @@ namespace DataExport
             }
             catch (Exception exp)
             {
-                RemoteMessage.SendMessage("异常ExchangeData" + exp.Message);
+                CommonFunction.WriteError("异常ExchangeData" + exp.Message);
+                //RemoteMessage.SendMessage("异常ExchangeData" + exp.Message);
                 return p_dtOnePatInfo;
             }
 

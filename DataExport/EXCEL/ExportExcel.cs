@@ -15,8 +15,16 @@ namespace DataExport
 
         public void Export()
         {
-            string _strDbfTempletPath = GetExcelTempletPath(m_dtSource.TableName);
-            InsertExcel(m_dtSource, _strDbfTempletPath);
+            try
+            {
+                string _strDbfTempletPath = GetExcelTempletPath(m_dtSource.TableName);
+                InsertExcel(m_dtSource, _strDbfTempletPath);
+            }
+            catch (Exception EX)
+            {
+                CommonFunction.WriteError("ExportExcel"+EX.Message);
+            }
+           
         }
 
         /// <summary>

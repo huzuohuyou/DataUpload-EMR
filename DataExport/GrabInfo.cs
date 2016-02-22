@@ -54,17 +54,25 @@ namespace DataExport
         /// <param name="p_strVisitId"></param>
         public static void InitPatDBInfo(string p_strPatientId, string p_strVisitId)
         {
-            m_dsPatDBInfo.Tables.Clear();
-            DataSet _dsObj = DBTemplet.GetSQL();
-            DataRow[] _arrSQL = _dsObj.Tables[0].Select("name like '#%'");
-            foreach (DataRow var in _arrSQL)
+            try
             {
-                string _strName = var["NAME"].ToString().ToUpper().Replace("#","");
-                string _strSQL = var["SQL"].ToString().ToUpper();
-                _strSQL = string.Format(_strSQL.Replace("@PATIENT_ID", p_strPatientId).Replace("@VISIT_ID", p_strVisitId));
-                DataTable _dtTemp = CommonFunction.OleExecuteBySQL(_strSQL, _strName, PublicVar.m_strEmrConnection);
-                m_dsPatDBInfo.Tables.Add(_dtTemp.Copy());
+                m_dsPatDBInfo.Tables.Clear();
+                DataSet _dsObj = DBTemplet.GetSQL();
+                DataRow[] _arrSQL = _dsObj.Tables[0].Select("name like '#%'");
+                foreach (DataRow var in _arrSQL)
+                {
+                    string _strName = var["NAME"].ToString().ToUpper().Replace("#", "");
+                    string _strSQL = var["SQL"].ToString().ToUpper();
+                    _strSQL = string.Format(_strSQL.Replace("@PATIENT_ID", p_strPatientId).Replace("@VISIT_ID", p_strVisitId));
+                    DataTable _dtTemp = CommonFunction.OleExecuteBySQL(_strSQL, _strName, PublicVar.m_strEmrConnection);
+                    m_dsPatDBInfo.Tables.Add(_dtTemp.Copy());
+                }
             }
+            catch (Exception ex)
+            {
+                CommonFunction.WriteError(ex.Message); ;
+            }
+           
         }
 
         /// <summary>
@@ -402,16 +410,16 @@ namespace DataExport
                     string _strTempValue = string.Empty;
                     if ("DB" == _strClass)
                     {
-                        if (_strDataDatail.StartsWith("@"))
-                        {
-                            _strTempValue = GrabPatientInfoFromDBBySQL(_strDataDatail, _strPatientId, _strVisitId);
+                        //if (_strDataDatail.StartsWith("@"))
+                        //{
+                        _strTempValue = GrabPatientInfoFromDBBySQL(_strDataDatail, _strPatientId, _strVisitId);
 
-                        }
-                        else
-                        {
-                            _strTempValue = GrabPatientInfoFromDBByParam(_strDataDatail, _strPatientId, _strVisitId);
+                        //}
+                        //else
+                        //{
+                        //    _strTempValue = GrabPatientInfoFromDBByParam(_strDataDatail, _strPatientId, _strVisitId);
 
-                        }
+                        //}
                     }
                     else if ("FILE" == _strClass)
                     {
@@ -441,7 +449,7 @@ namespace DataExport
                 string _strObject = _drObject["TABLE_NAME"].ToString();
                 //DataTable _dtObjecDetail = GetChapterDetail(_strObject);
                 DataSet _dsObjectReflect = GetObjectLayOut(_strObject);
-                foreach (DataRow _drPatient in PublicVar.m_dsPatients.Rows)
+                foreach (DataRow _drPatient in PublicVar.m_dtPatients.Rows)
                 {
                     string _strPatientId = _drPatient["PATIENT_ID"].ToString();
                     string _strVisitId = _drPatient["VISIT_ID"].ToString();
@@ -556,6 +564,27 @@ namespace DataExport
         }
 
         /// <summary>
+        /// 将字典装载到dict中 key 为fieldname+localvalue（大写） value 为targetvalue
+        /// 2016-02-17
+        /// 吴海龙
+        /// </summary>
+        /// <param name="p_dtFieldDict"></param>
+        public static void InitFieldDict(DataTable p_dtFieldDict)
+        {
+            foreach (DataRow var in p_dtFieldDict.Rows)
+            {
+                string _strKey = var["FIELD_NAME"].ToString() + var["LOCAL_VALUE"].ToString().Trim().ToUpper();
+                string _strValue = var["TARGET_VALUE"].ToString().Trim();
+                if (!PublicVar.m_dictFieldDict.ContainsKey(_strKey))
+                {
+                    PublicVar.m_dictFieldDict.Add(_strKey, _strValue);
+                }
+                
+            }
+            RemoteMessage.SendMessage("初始化字典完成共" + PublicVar.m_dictFieldDict.Keys.Count+"项.....");
+        }
+
+        /// <summary>
         /// 获取由sql查询到的病人信息
         /// </summary>
         /// <param name="dql">sql集</param>
@@ -565,20 +594,38 @@ namespace DataExport
             PublicVar.m_strExportType = uctlBaseConfig.GetConfig("ExportType");
             PublicVar.m_nSuccessCount = 0;
             PublicVar.m_nFalseCount = 0;
+            string _strSQL = string.Format("select FIELD_NAME,LOCAL_VALUE,TARGET_VALUE FROM pt_comparison ");
+            PublicVar.m_dtFieldDict = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
+            InitFieldDict(PublicVar.m_dtFieldDict);
+
             DataTable _dtSql = GrabInfo.GetConfigSQL();
             foreach (DataRow dr in _dtSql.Rows)
             {
-                foreach (DataRow drpat in PublicVar.m_dsPatients.Rows)
+                PublicVar.m_strCurrentObj = dr["table_name"].ToString();
+                CommonFunction.WriteLog("开始导出对象" + dr["table_name"].ToString());
+                PublicVar.m_nObjSuccessCount = 0;
+                PublicVar.m_nObjFalseCount = 0;
+                foreach (DataRow drpat in PublicVar.m_dtPatients.Rows)
                 {
-                    string _strSQL = string.Format(dr["sql"].ToString().Replace("@PATIENT_ID", drpat["PATIENT_ID"].ToString()).Replace("@VISIT_ID", drpat["VISIT_ID"].ToString()));
-                    RemoteMessage.SendMessage("查询病人信息" + dr["TABLE_NAME"].ToString() + "---" + drpat["PATIENT_ID"].ToString() + "---" + drpat["VISIT_ID"].ToString());
-                    DataTable _dtOnePatOneObj = CommonFunction.OleExecuteBySQL(_strSQL, dr["TABLE_NAME"].ToString(), "EMR");
-                    _dtOnePatOneObj = ConversionData.ExchangeData(_dtOnePatOneObj);
-                    //RemoteMessage.SendMessage("==开始执行导出...");
-                    ExeExport(_dtOnePatOneObj);                   
+                    if (PublicVar.m_strExportType == "XML")
+                    {
+                        ExportXml ie = new ExportXml(PublicVar.m_dtPatients);
+                        ie.Export();
+                    }
+                    else
+                    {
+                        _strSQL = string.Format(dr["sql"].ToString().Replace("@PATIENT_ID", drpat["PATIENT_ID"].ToString()).Replace("@VISIT_ID", drpat["VISIT_ID"].ToString()));
+                        RemoteMessage.SendMessage("查询病人信息" + dr["TABLE_NAME"].ToString() + "---" + drpat["PATIENT_ID"].ToString() + "---" + drpat["VISIT_ID"].ToString());
+                        DataTable _dtOnePatOneObj = CommonFunction.OleExecuteBySQL(_strSQL, dr["TABLE_NAME"].ToString(), "EMR");
+                        _dtOnePatOneObj = ConversionData.ExchangeData(_dtOnePatOneObj);
+                        ExeExport(_dtOnePatOneObj);
+                    }
                 }
+                CommonFunction.WriteLog("成功" + PublicVar.m_nObjSuccessCount + "失败" + PublicVar.m_nObjFalseCount);
+                CommonFunction.WriteLog("---------------------------------------");
             }
-            string _strMess = "导入成功:" + PublicVar.m_nSuccessCount + "\n导入失败:" + PublicVar.m_nFalseCount;
+            string _strMess = "总共导入成功:" + PublicVar.m_nSuccessCount + " 导入失败:" + PublicVar.m_nFalseCount;
+            CommonFunction.WriteLog("================================================");
             RemoteMessage.SendMessage(_strMess);
             CommonFunction.WriteLog(_strMess);
         }
@@ -649,9 +696,7 @@ namespace DataExport
                     //PublicVar.ExcelPath = _strExceltPath;
                     //PublicVar.ExcelSource = PublicVar.ExportData.Tables[0];
                     break;
-                case "XML":
-                    ie = new FluenctExport(PublicVar.m_dsPatients);
-                    break;
+               
                 default:
                     CommonFunction.WriteError("未知导出类型:" + _strExportType);
                     break;
