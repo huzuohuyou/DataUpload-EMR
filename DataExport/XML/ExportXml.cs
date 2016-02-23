@@ -103,7 +103,9 @@ namespace DataExport
                     _strNewXml = ClearXml(_strNewXml);
                     foreach (string var in _listField)
                     {
-                        _strNewXml = _strNewXml.Replace(var, _drSource[var.Replace("[", "").Replace("]", "")].ToString());
+                        string _strNewValue = _drSource[var.Replace("[", "").Replace("]", "")].ToString();
+                        _strNewValue = ConversionData.ExchangeData(p_strOldValue, _strNewValue);
+                        _strNewXml = _strNewXml.Replace(var, _strNewValue);
                     }
                     _strMultiXml += _strNewXml;
                 }
@@ -143,6 +145,7 @@ namespace DataExport
                 string _strXml = p_strXml;
                 string _strSQL = p_strSQL.Replace("@PATIENT_ID", p_strPatientId).Replace("@VISIT_ID", p_strVisitId);
                 string _strNewValue = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR").Rows[0][0].ToString();
+                _strNewValue = ConversionData.ExchangeData(p_strOldValue, _strNewValue);
                 if (_strXml.IndexOf(p_strOldValue) > 0)
                 {
                     _strXml = _strXml.Replace(p_strOldValue, _strNewValue);
@@ -171,6 +174,7 @@ namespace DataExport
                 string _strNewValue = SingleObjectDBExport.CallMrInfo2(p_strPatientId, int.Parse(p_strVisitId), p_strOldValue);
                 if (_strXml.IndexOf(p_strOldValue) > 0)
                 {
+                    _strNewValue = ConversionData.ExchangeData(p_strOldValue, _strNewValue);
                     _strXml = _strXml.Replace(p_strOldValue, _strNewValue);
                     RemoteMessage.SendMessage(p_strOldValue + "....................." + _strNewValue);
                 }
@@ -235,6 +239,7 @@ namespace DataExport
                 string _strVisitId = pat["VISIT_ID"].ToString();
                 foreach (DataRow var in _dtFieldDict.Rows)
                 {
+                    
                     if (var["class"].ToString().ToUpper() == "DB")
                     {
                         _strXml = DoDBReplace(_strXml, var["chapter_name"].ToString(), var["data_detail"].ToString(), _strPatient_id, _strVisitId);

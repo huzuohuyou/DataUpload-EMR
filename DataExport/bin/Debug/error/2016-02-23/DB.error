@@ -1,0 +1,8 @@
+[TIME]:2016/2/23 15:30:08
+[ERROR]:未指定的错误
+ORA-12571: TNS:packet writer failureupdate pt_chapter_dict set data_detail = 'SELECT INSURANCE_TYPE FROM PAT_VISIT WHERE PATIENT_ID = ''@PATIENT_ID'' AND VISIT_ID = @VISIT_ID', class = 'DB' where table_name = '抢救记录' and chapter_name = '[居住地址-省]'
+
+[TIME]:2016/2/23 15:30:10
+[ERROR]:未指定的错误
+ORA-03114: not connected to ORACLE
+

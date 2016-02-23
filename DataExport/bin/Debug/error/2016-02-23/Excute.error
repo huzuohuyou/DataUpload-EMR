@@ -1,0 +1,14 @@
+[TIME]:2016/2/23 14:02:17
+[ERROR]:System.ArgumentException: 空文件名是非法的。
+参数名: sourceFileName
+   在 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite)
+   在 System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   在 ToolFunction.CommonFunction.CopyFile(String p_strSourcePath, String p_strTargetPath, Boolean p_bOverWrite) 位置 E:\Github\DataUpload-EMR\ToolFunction\CommonFunction.cs:行号 1598
+
+[TIME]:2016/2/23 14:02:18
+[ERROR]:System.ArgumentException: 空文件名是非法的。
+参数名: sourceFileName
+   在 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite)
+   在 System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   在 ToolFunction.CommonFunction.CopyFile(String p_strSourcePath, String p_strTargetPath, Boolean p_bOverWrite) 位置 E:\Github\DataUpload-EMR\ToolFunction\CommonFunction.cs:行号 1598
+

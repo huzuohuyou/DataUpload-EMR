@@ -46,11 +46,12 @@
       <!--手术切口愈合等级代码-->
       
       <!--手术切口名称-->
-      {
+      
       <INCISION_NAME>[手术切口名称]</INCISION_NAME>
       <INCISION_CODE>[手术切口愈合等级代码]</INCISION_CODE>
-      }
+      
     </E05.02.00.00>
   </resquest>
 </body>
+
 

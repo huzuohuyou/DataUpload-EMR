@@ -66,6 +66,9 @@ namespace DataExport
         {
             string _strXML = ExportXml.GetXML(dataGridView1.CurrentRow.Cells["TABLE_NAME"].Value.ToString());
             this.rtb_xml.Text = _strXML;
+            string _strSQL = string.Format(@"select  table_name,class,chapter_name,data_detail,'' CHOSE from pt_chapter_dict where table_name = '{0}'", GetCurrentObjectName());
+            DataTable _dtChapter = CommonFunction.OleExecuteBySQL(_strSQL, "", "EMR");
+            dataGridView2.DataSource = _dtChapter;
         }
 
         /// <summary>
@@ -250,6 +253,17 @@ namespace DataExport
                 return dataGridView2.CurrentRow.Cells["CLASS"].Value.ToString();
             }
             return "";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string _strSQL = string.Format(@"delete  pt_chapter_dict where table_name='{0}' and  chapter_name='{1}'", dataGridView1.CurrentRow.Cells["TABLE_NAME"].Value.ToString(), dataGridView2.CurrentRow.Cells["CHAPTER_NAME"].Value.ToString());
+            int _n = CommonFunction.OleExecuteNonQuery(_strSQL, "EMR");
+            if (_n==1)
+            {
+                uctlMessageBox.frmDisappearShow("É¾³ý³É¹¦£¡");
+                InitData();
+            }
         }
      
     }

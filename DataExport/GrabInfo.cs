@@ -622,10 +622,8 @@ namespace DataExport
                     }
                 }
                 CommonFunction.WriteLog("成功" + PublicVar.m_nObjSuccessCount + "失败" + PublicVar.m_nObjFalseCount);
-                CommonFunction.WriteLog("---------------------------------------");
             }
             string _strMess = "总共导入成功:" + PublicVar.m_nSuccessCount + " 导入失败:" + PublicVar.m_nFalseCount;
-            CommonFunction.WriteLog("================================================");
             RemoteMessage.SendMessage(_strMess);
             CommonFunction.WriteLog(_strMess);
         }
